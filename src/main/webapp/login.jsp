@@ -63,8 +63,13 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <div class="form-group">
-            <button type="submit">Login</button>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+            <div class="col">
+                <button type="button" onclick="location.href='register.jsp'" class="btn btn-secondary btn-block">Register</button>
+            </div>
         </div>
     </form>
 </div>

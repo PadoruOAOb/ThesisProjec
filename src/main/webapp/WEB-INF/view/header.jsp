@@ -15,7 +15,7 @@
 
 <body>
     <!-- Bootstrap 導覽列 -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary fs-3 fixed-top ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary fs-3 fixed-top p-0 ">
         <div class="container-fluid p-3 fs-3">
             <a class="navbar-brand fs-1 text-white" href="/ThesisProjec/index.jsp">學習平台</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -29,7 +29,10 @@
                         <a class="nav-link active text-white" aria-current="page" href="#">首頁</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">課程</a>
+                        <a class="nav-link text-white" href="/ThesisProjec/OwnedCourses.jsp">我的課程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/ThesisProjec/Cart.jsp">課程購物車</a>
                     </li>
                     <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
