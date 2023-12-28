@@ -1,10 +1,17 @@
-package springMVC.model.entity;
+package com.example.entiry;
+
+import com.google.gson.Gson;
 
 public class User {
+	
 	private Integer userId; // 使用者代號
+	
 	private String username; // 使用者名稱
+	
 	private String password; // 使用者密碼
+	
 	private String email;  // 使用者信箱
+	
 	private Integer level; // 使用者權限
 	
 	public User() {
@@ -43,8 +50,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", email=" + email
-				+ ", level=" + level + "]";
+		return new Gson().toJson(this);
 	}
 	
 }
