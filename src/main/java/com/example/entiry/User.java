@@ -1,4 +1,4 @@
-package springMVC.model.entity;
+package com.example.entiry;
 
 public class User {
 	private Integer userId; // 使用者代號

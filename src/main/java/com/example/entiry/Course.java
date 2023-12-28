@@ -1,4 +1,4 @@
-package springMVC.model.entity;
+package com.example.entiry;
 
 public class Course {
    private Integer courseId;  // 商品代號
