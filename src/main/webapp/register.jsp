@@ -78,19 +78,23 @@ button:hover {
 </head>
 <body>
 
-	<form onsubmit="return validateForm()">
-		<h2>註冊</h2>
+	<form modelAttribute="user" action="./mvc/user/register" method="post" onsubmit="return validateForm()">
+    <h2>註冊</h2>
 
-		<label for="email">電子郵件：</label> <input type="email" id="email"
-			name="email" required> <label for="username">使用者名稱：</label> <input
-			type="text" id="username" name="username" required> <label
-			for="password">密碼：</label> <input type="password" id="password"
-			name="password" required> <label for="confirmPassword">確認密碼：</label>
-		<input type="password" id="confirmPassword" name="confirmPassword"
-			required>
+    <label for="email">電子郵件：</label>
+    <input type="email" id="email" name="email" required> 
 
-		<button type="submit">註冊</button>
-	</form>
+    <label for="username">使用者名稱：</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">密碼：</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="confirmPassword">確認密碼：</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+    <button type="submit">註冊</button>
+</form>
 
 	<script>
 		function validateForm() {

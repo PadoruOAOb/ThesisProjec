@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
-<%@ include file="/WEB-INF/view/header.jsp" %>
+<%@ include file="/WEB-INF/views/header.jsp" %>
 
  <main>
         <img src="./img/Home.png" alt="首頁圖片" class= "Home" >
@@ -19,6 +19,6 @@
     </main>
 
 
-<%@ include file="/WEB-INF/view/footer.jsp" %>
+<%@ include file="/WEB-INF/views/footer.jsp" %>
 
 

@@ -50,7 +50,7 @@
                         </ul>
                     </li>
                 </ul>
-                <a class="btn btn-outline-success fs-3 text-white submit" href="/ThesisProjec/login.jsp">登入</a>
+                <a class="btn btn-outline-success fs-3 text-white submit"  href="./mvc/user/login">登入</a>
 
             </div>
         </div>

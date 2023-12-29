@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 
-<%@ include file="/WEB-INF/view/header.jsp"%>
+<%@ include file="/WEB-INF/views/header.jsp"%>
 <style>
     html, body {
         height: 100%;
@@ -128,7 +128,7 @@
     </div>
 </div>
 
-<%@ include file="/WEB-INF/view/footer.jsp"%>
+<%@ include file="/WEB-INF/views/footer.jsp"%>
 
 </body>
 

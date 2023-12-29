@@ -21,4 +21,12 @@ public class UserDaoImpl implements UserDao {
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper(User.class));
 	}
 
+	@Override
+	public void addUser(User user) {
+	    String sql = "insert into user(username, password, email) values(?, ?, ?)";
+	    jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getEmail());
+	}
+
+
+
 }

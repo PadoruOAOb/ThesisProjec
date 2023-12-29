@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<%@ include file="/WEB-INF/view/header.jsp"%>
+<%@ include file="/WEB-INF/views/header.jsp"%>
 <style>
 html, body {
     height: 100%;
@@ -34,7 +34,7 @@ body {
 
         <!-- 可以加入更多已購買課程的卡片 -->
     </div>
-<%@ include file="/WEB-INF/view/footer.jsp"%>
+<%@ include file="/WEB-INF/views/footer.jsp"%>
 
 </body>
 

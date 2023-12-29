@@ -65,10 +65,10 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <button type="submit" class="btn btn-primary btn-block">登入</button>
             </div>
             <div class="col">
-                <button type="button" onclick="location.href='register.jsp'" class="btn btn-secondary btn-block">Register</button>
+                <button type="button" onclick="location.href='register.jsp'" class="btn btn-secondary btn-block">註冊</button>
             </div>
         </div>
     </form>
