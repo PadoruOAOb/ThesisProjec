@@ -1,5 +1,9 @@
 package com.example.entiry;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.google.gson.Gson;
 
 public class User {
@@ -13,6 +17,13 @@ public class User {
 	private String email;  // 使用者信箱
 	
 	private Integer level; // 使用者權限
+	
+	private String authType; // 授權來源
+	
+	private String authId; // 授權Id
+	
+	// 服務列表
+	private List<com.example.entiry.Service> services;
 	
 	public User() {
 		
@@ -47,10 +58,35 @@ public class User {
 	}
 	public void setLevel(Integer level) {
 		this.level = level;
+	}	
+	public String getAuthType() {
+		return authType;
 	}
+
+	public void setAuthType(String authType) {
+		this.authType = authType;
+	}
+
+	public String getAuthId() {
+		return authId;
+	}
+
+	public void setAuthId(String authId) {
+		this.authId = authId;
+	}
+
+	public List<com.example.entiry.Service> getServices() {
+		return services;
+	}
+
+	public void setServices(List<com.example.entiry.Service> services) {
+	    this.services = services;
+	}
+
 	@Override
 	public String toString() {
 		return new Gson().toJson(this);
 	}
 	
+
 }

@@ -78,7 +78,7 @@ button:hover {
 </head>
 <body>
 
-	<form modelAttribute="user" action="./mvc/user/register" method="post" onsubmit="return validateForm()">
+	<form modelAttribute="user" action="./register" method="post" onsubmit="return validateForm()">
     <h2>註冊</h2>
 
     <label for="email">電子郵件：</label>

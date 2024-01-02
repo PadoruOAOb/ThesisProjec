@@ -50,8 +50,13 @@
                         </ul>
                     </li>
                 </ul>
-                <a class="btn btn-outline-success fs-3 text-white submit"  href="./mvc/user/login">登入</a>
-
+                 <% if (request.getUserPrincipal() != null && request.getUserPrincipal().getName() != null) { %>
+                    <p class="text-white me-3">Welcome, <%= request.getUserPrincipal().getName() %>! <a
+                            href="<%= request.getContextPath() %>/logout" class="btn btn-outline-danger">Logout</a></p>
+                <% } else { %>
+                    <a class="btn btn-outline-success fs-3 text-white submit"
+                        href="<%= request.getContextPath() %>/mvc/user/login">登入</a>
+                <% } %>
             </div>
         </div>
     </nav>

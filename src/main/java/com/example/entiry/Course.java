@@ -1,5 +1,7 @@
 package com.example.entiry;
 
+import com.google.gson.Gson;
+
 public class Course {
    private Integer courseId;  // 商品代號
    private String courseName; // 商品名稱
@@ -35,6 +37,6 @@ public void setPrice(Integer price) {
 
 @Override
 public String toString() {
-	return "Course [courseId=" + courseId + ", courseName=" + courseName + ", price=" + price + "]";
+	return new Gson().toJson(this);
 }
 }
