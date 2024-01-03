@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>學習平台 </title>
-    <link rel="stylesheet" href="/ThesisProjec/styles.css">
+    <link rel="stylesheet" href="/ThesisProjec/views/css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -44,7 +44,7 @@
                         </a>
                         <ul class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">日文</a></li>
-                            <li><a class="dropdown-item" href="./Math.jsp">數學</a></li>
+                            <li><a class="dropdown-item"action="./math" href="/ThesisProjec/src/main/webapp/WEB-INF/views/Math/Math.jsp">數學</a></li>
                             <li><a class="dropdown-item" href="#">英文</a></li>
                             <li>
                                 <hr class="dropdown-divider">

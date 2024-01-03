@@ -22,17 +22,18 @@ public class LoginInterceptor implements HandlerInterceptor {
 			// "/group_buy/backend", user level = 2 才可以進入
 			System.out.println("RequestURI = " + request.getRequestURI());
 			if(request.getRequestURI().contains("/OwnedCourses")) { // 後台
-				if(user.getLevel() == 2) {
+				if(user.getLevel() == 1) {
 					return true; // 放行
 				} else {
-					response.sendRedirect(request.getServletContext().getContextPath() + "/mvc/login");
+					response.sendRedirect(request.getServletContext().getContextPath() + "/mvc/user/login");
 					return false; // 不放行
 				}
 			} 
 			return true; // 放行
 		}
+		
 		// 未登入, 導入到登入頁面
-		response.sendRedirect(request.getServletContext().getContextPath() + "/mvc/login");
+		response.sendRedirect(request.getServletContext().getContextPath() + "/mvc/user/login");
 		return false; // 不放行
 	}
 

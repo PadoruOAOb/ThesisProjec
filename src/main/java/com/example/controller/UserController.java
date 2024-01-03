@@ -60,7 +60,6 @@ public class UserController {
 	// 轉跳登入的頁面
 	@GetMapping("/login")
 	public String login(HttpSession session) {
-		session.setAttribute("user", "admin");
 		return "login";
 	}
 
@@ -103,6 +102,11 @@ public class UserController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
+		return "redirect:/";
+	}
+	// 導入到數學課程業面
+	@GetMapping("/math")
+	public String math(Model model) {
 		return "redirect:/";
 	}
 }

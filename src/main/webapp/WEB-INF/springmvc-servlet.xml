@@ -63,15 +63,14 @@
     
     <!-- 定義攔截器 Bean -->
     <bean id="loginInterceptor" class="com.example.interceptor.LoginInterceptor"/>
-
-    <!-- 配置攔截器 -->
+    
+    <!-- 配置攔截器
     <mvc:interceptors>
-        <mvc:interceptor>                
-            <mvc:mapping path="/ThesisProjec/cart"/>
-            <mvc:mapping path="/ThesisProjec/myCourses"/>
-            <mvc:exclude-mapping path="/ThesisProjec/Math"/>           
+        <mvc:interceptor>           
+            <mvc:mapping path="/**"/> 
+            <mvc:exclude-mapping path="/user/login"/>         
             <bean class="com.example.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
-
+     -->
 </beans>		
