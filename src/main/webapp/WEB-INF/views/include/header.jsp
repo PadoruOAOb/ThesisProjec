@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,13 +53,16 @@
                         </ul>
                     </li>
                 </ul>
-                 <% if (request.getUserPrincipal() != null && request.getUserPrincipal().getName() != null) { %>
-                    <p class="text-white me-3">Welcome, <%= request.getUserPrincipal().getName() %>! <a
-                            href="<%= request.getContextPath() %>/logout" class="btn btn-outline-danger">Logout</a></p>
-                <% } else { %>
-                    <a class="btn btn-outline-success fs-3 text-white submit"
-                        href="<%= request.getContextPath() %>/mvc/user/login">登入</a>
-                <% } %>
+                
+                <c:if test="${ empty user }">
+                	<a class="btn btn-outline-success fs-3 text-white submit" href="<%= request.getContextPath() %>/mvc/user/login">登入</a>
+                </c:if>
+                
+                <c:if test="${ not empty user }">
+                	<p class="text-white me-3">Welcome, ${ user.username } ! 
+                	<a href="${ pageContext.request.contextPath }/mvc/user/logout" class="btn btn-outline-danger">Logout</a></p>
+                </c:if>
+
             </div>
         </div>
     </nav>

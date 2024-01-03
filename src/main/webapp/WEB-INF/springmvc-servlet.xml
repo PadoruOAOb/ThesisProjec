@@ -61,10 +61,17 @@
     <!-- 開啟註解驅動，對事務相關的註解進行掃描與解析 -->
     <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
     
- 
-    
-    
-    
-    
-	
+    <!-- 定義攔截器 Bean -->
+    <bean id="loginInterceptor" class="com.example.interceptor.LoginInterceptor"/>
+
+    <!-- 配置攔截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>                
+            <mvc:mapping path="/ThesisProjec/cart"/>
+            <mvc:mapping path="/ThesisProjec/myCourses"/>
+            <mvc:exclude-mapping path="/ThesisProjec/Math"/>           
+            <bean class="com.example.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>		
