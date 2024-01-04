@@ -68,11 +68,10 @@
                 <button type="submit" class="btn btn-primary btn-block">登入</button>
             </div>
             <div class="col">
-                <button type="button" onclick="location.href='register.jsp'" class="btn btn-secondary btn-block">註冊</button>
+                <a type="button" href="/ThesisProjec/mvc/user/register" class="btn btn-secondary btn-block">註冊</a>
             </div>
         </div>
     </form>
 </div>
-
 </body>
 </html>

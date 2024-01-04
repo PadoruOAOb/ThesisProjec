@@ -24,6 +24,8 @@ public class LoginFilter extends HttpFilter{
 		// 哪些路徑，不需要先登入，就可以顯示頁面
 		if(        urlString.endsWith("login.jsp") 
 				|| urlString.endsWith("login") 
+				|| urlString.endsWith("register.jsp") 
+				|| urlString.endsWith("register") 
 				|| urlString.endsWith("ThesisProjec/") 
 				|| urlString.endsWith("index.jsp") 
 				|| urlString.indexOf("/images")>=0 
