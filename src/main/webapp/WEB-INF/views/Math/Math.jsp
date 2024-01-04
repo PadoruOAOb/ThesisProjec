@@ -15,7 +15,7 @@
 			<!-- 第一個課程 -->
 			<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1 ">
 				<div class="card">
-					<img src="./img/math.png" class="card-img-top" alt="Math Course 1">
+					<img src="../../img/math.png" class="card-img-top" alt="Math Course 1">
 					<div class="card-body m-0">
 						<h5 class="card-title fs-3">三角函數專屬課程</h5>
 						<p class="card-text">
@@ -25,7 +25,7 @@
 							生動教學：由資深數學教師授課，以清晰而生動的方式解釋三角函數的概念，讓學習變得輕鬆有趣。<br>
 							實用應用：學會如何應用三角函數解決現實生活中的問題，包括物理、工程和計算機科學等多個領域。
 						</p>
-						<a class="btn btn-primary" href="/ThesisProjec/TrigFunctions.jsp">詳細課程
+						<a class="btn btn-primary" href="/ThesisProjec/mvc/user/trigFunctions">詳細課程
 						</a>
 
 					</div>
@@ -35,7 +35,7 @@
 			<!-- 第二個課程 -->
 			<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1">
 				<div class="card">
-					<img src="./img/math2.png" class="card-img-top"
+					<img src="../../img/math2.png" class="card-img-top"
 						alt="Math Course 2">
 					<div class="card-body ">
 						<h5 class="card-title fs-3 pt-auto">微積分入門課程</h5>
@@ -53,7 +53,7 @@
 			<!-- 第三個課程 -->
 			<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1">
 				<div class="card">
-					<img src="./img/math3.png" class="card-img-top" alt="Math Course 3">
+					<img src="../../img/math3.png" class="card-img-top" alt="Math Course 3">
 					<div class="card-body">
 						<h5 class="card-title fs-3 pt-auto">統計學基礎課程</h5>
 						<p class="card-text">
@@ -63,7 +63,7 @@
 							實際應用案例：透過豐富的實際案例，學會如何應用統計學方法解決現實生活中的問題。<br>
 							統計軟體應用：學習使用常見的統計軟體，如R或Python，進行數據分析和視覺化。<br>
 						</p>
-						<a class="btn btn-primary" href="/ThesisProjec/TrigFunctions.jsp">詳細課程
+						<a class="btn btn-primary" href="/ThesisProjec/mvc/user/trigFunctions">詳細課程
 						</a>
 					</div>
 				</div>

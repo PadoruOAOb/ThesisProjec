@@ -104,9 +104,17 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	
 	// 導入到數學課程業面
 	@GetMapping("/math")
 	public String math(Model model) {
-		return "redirect:/";
+		return "Math/Math";
+	}
+	
+	//轉跳到三角函數的業面
+	@GetMapping("/trigFunctions")
+	public String TrigFunctions(Model model) {
+		return "Math/Detailed/TrigFunctions";
 	}
 }
