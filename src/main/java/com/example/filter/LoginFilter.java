@@ -30,6 +30,7 @@ public class LoginFilter extends HttpFilter{
 				|| urlString.endsWith("index.jsp") 
 				|| urlString.indexOf("/images")>=0 
 				|| urlString.endsWith(".css")
+				|| urlString.endsWith(".png")
 				|| urlString.endsWith(".js") ) {
 			chain.doFilter(request, response);
 			return;

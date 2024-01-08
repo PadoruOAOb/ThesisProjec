@@ -156,6 +156,38 @@ function formatExpirationDate() {
 
     // 更新輸入框的值
     expirationDateInput.value = cleanedValue;
+    
+    // 購物車內容
+    var cartContent = [];
+
+    // 函數：將課程添加到購物車
+    function addToCart() {
+        // 獲取課程信息（您可能需要根據實際情況修改此處的代碼）
+        var courseInfo = {
+            name: "三角函數課程",
+            price: 99.99
+        };
+
+        // 將課程添加到購物車
+        cartContent.push(courseInfo);
+
+        // 更新購物車內容顯示
+        updateCartDisplay();
+    }
+
+        // 函數：更新購物車內容顯示
+    function updateCartDisplay() {
+        var cartContainer = document.getElementById("cart-content");
+        cartContainer.innerHTML = ""; // 清空現有內容
+
+        // 顯示購物車內容
+        for (var i = 0; i < cartContent.length; i++) {
+            var course = cartContent[i];
+            var courseItem = document.createElement("div");
+            courseItem.innerHTML = "<h4>課程名稱: " + course.name + "</h4><p>價格: $" + course.price.toFixed(2) + "</p>";
+            cartContainer.appendChild(courseItem);
+        }
+    }
 }
 </script>
 

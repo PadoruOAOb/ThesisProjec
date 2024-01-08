@@ -80,7 +80,7 @@
                 證書應包含學生的名稱、課程名稱、完成日期等基本資訊，以便他們能在履歷或學習紀錄中展示。</br>
                 這個證書是學生參與並成功完成課程的有力證明，增加了他們的數學學習成就感。</br>
             </ul>
-            <button onclick="purchaseCourse()">購買課程</button>
+            <button onclick="addToCart()">購買課程</button>
         </div>
         
         

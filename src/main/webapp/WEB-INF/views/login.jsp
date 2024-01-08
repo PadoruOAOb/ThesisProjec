@@ -63,11 +63,11 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <div class="row">
+        <div class="row m-0 ">
             <div class="col">
                 <button type="submit" class="btn btn-primary btn-block">登入</button>
             </div>
-            <div class="col">
+            <div class="col m-0">
                 <a type="button" href="/ThesisProjec/mvc/user/register" class="btn btn-secondary btn-block">註冊</a>
             </div>
         </div>

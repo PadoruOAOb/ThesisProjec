@@ -59,8 +59,8 @@
                 </c:if>
                 
                 <c:if test="${ not empty user }">
-                	<p class="text-white me-3">Welcome, ${ user.username } ! 
-                	<a href="${ pageContext.request.contextPath }/mvc/user/logout" class="btn btn-outline-danger">Logout</a></p>
+                	<p class="text-white me-3 m-0">Welcome, ${ user.username } ! 
+                	<a href="${ pageContext.request.contextPath }/mvc/user/logout" class="btn btn-outline-danger m-0" >Logout</a></p>
                 </c:if>
 
             </div>
