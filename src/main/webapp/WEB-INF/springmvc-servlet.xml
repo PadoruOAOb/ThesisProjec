@@ -73,4 +73,7 @@
         </mvc:interceptor>
     </mvc:interceptors>
      -->
+     
+    <!-- mvc:resources 映射 -->
+    <mvc:resources mapping="/videos/**" location="classpath:/WEB-INF/videos/"/>
 </beans>		

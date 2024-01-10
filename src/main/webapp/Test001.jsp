@@ -19,12 +19,17 @@
         <!-- 影片區域 -->
         <div class="card mb-4">
             <div class="card-body">
-                <h5 class="card-title">課程影片</h5>
+                
+               <h5 class="card-title">課程影片</h5>
+               <!-- 
+               <iframe width="560" height="315" src="/ThesisProjec/mvc/video/v1"  frameborder="0" allowfullscreen></iframe>
+               -->
                
                <!-- 使用 iframe 嵌入 YouTube 影片，修改 src 屬性為相應的嵌入代碼 -->
-            <iframe width="560" height="315" src="/ThesisProjec/mvc/video/v1"  frameborder="0"
-                allowfullscreen></iframe>
-            </div>
+	           <video width="640" height="360" controls preload="metadata" class="m-2">
+	            	<source src="/ThesisProjec/mvc/video/v2" type="video/mp4">
+			   </video>
+			</div>
         </div>
 
         <!-- 下載教材區域 -->
