@@ -26,6 +26,7 @@ public class LoginFilter extends HttpFilter{
 				|| urlString.endsWith("login") 
 				|| urlString.endsWith("register.jsp") 
 				|| urlString.endsWith("register") 
+				|| urlString.endsWith(".mp4") 
 				|| urlString.endsWith("ThesisProjec/") 
 				|| urlString.endsWith("index.jsp") 
 				|| urlString.indexOf("/images")>=0 

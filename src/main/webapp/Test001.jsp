@@ -20,8 +20,10 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h5 class="card-title">課程影片</h5>
-                <!-- 嵌入 YouTube 影片 -->
-                <iframe width="560" height="315" src="/ThesisProjec/mvc/videos/video.mp4" frameborder="0" allowfullscreen></iframe>
+               
+               <!-- 使用 iframe 嵌入 YouTube 影片，修改 src 屬性為相應的嵌入代碼 -->
+            <iframe width="560" height="315" src="/ThesisProjec/mvc/video/v1"  frameborder="0"
+                allowfullscreen></iframe>
             </div>
         </div>
 
