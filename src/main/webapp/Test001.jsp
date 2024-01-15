@@ -3,7 +3,7 @@
 <html>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<body style="padding-top: 100px;">
+<body style="padding-top: 100px;" class="d-flex flex-column min-vh-100">
 
     <div class="container mt-5">
         <h2 class="mb-4">三角函數課程</h2>

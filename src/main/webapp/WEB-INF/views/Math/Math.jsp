@@ -5,12 +5,9 @@
 <head>
 
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 	<main class="container mt-4">
-
 		<h2 class="mb-4">數學課程列表</h2>
-
-		<!-- 使用 Bootstrap 的橫列式格子 -->
 		<div class="row">
 			<!-- 第一個課程 -->
 			<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1 ">
