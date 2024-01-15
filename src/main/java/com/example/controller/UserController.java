@@ -104,8 +104,7 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/";
 	}
-	
-	
+		
 	// 導入到數學課程業面
 	@GetMapping("/math")
 	public String math(Model model) {

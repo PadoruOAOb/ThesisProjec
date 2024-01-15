@@ -12,14 +12,14 @@
 			<!-- 第一課程 -->
 			<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1">
 				<div class="card">
-					<img src="../../img/math.png" class="card-img-top" alt="Math Course 1">
+					<img src="./img/JP/JP01.png" class="card-img-top" alt="00 Course 1">
 					<div class="card-body m-0">
 						<h5 class="card-title fs-3">N5日文學習課程</h5>
 						<p class="card-text">
 							N5日文學習課程歡迎您。這是一門精選的課程，旨在從基礎開始學習日文，並致力於掌握N5水平的語言技能。即使是初學者也可以放心參與。<br>
 							課程亮點：<br> 基礎理論深入：通過深入學習日文的核心理論，確保您能夠獲得扎實的語言基礎。<br>
 							應用案例：通過實際應用案例，學會在現實生活中應用日文，包括日常交流、商務溝通等方面。<br>
-							互動學習：課程中包含豐富的互動元素，如問答環節和小組討論，使學習更加生動有趣77。<br>
+							互動學習：課程中包含豐富的互動元素，如問答環節和小組討論，使學習更加生動有趣。<br>
 						</p>
 						<a class="btn btn-primary" href="/ThesisProjec/mvc/user/japaneseLearning">詳細課程
 						</a>
