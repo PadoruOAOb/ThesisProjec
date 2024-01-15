@@ -104,16 +104,23 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/";
 	}
-		
+
 	// 導入到數學課程業面
 	@GetMapping("/math")
 	public String math(Model model) {
 		return "Math/Math";
 	}
-	
-	//轉跳到三角函數的業面
+
+	// 轉跳到三角函數的業面
 	@GetMapping("/trigFunctions")
 	public String TrigFunctions(Model model) {
 		return "Math/Detailed/TrigFunctions";
+	}
+
+	// 轉跳到日文課程頁面
+	@GetMapping("/japan")
+	public String japan(Model model) {
+		return "Japan/Japan";
+
 	}
 }

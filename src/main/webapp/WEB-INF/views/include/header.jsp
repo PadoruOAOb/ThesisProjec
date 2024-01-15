@@ -43,7 +43,7 @@
                             選擇課程
                         </a>
                         <ul class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">日文</a></li>
+                            <li><a class="dropdown-item" href="/ThesisProjec/mvc/user/japan">日文</a></li>
                             <li><a class="dropdown-item" href="/ThesisProjec/mvc/user/math">數學</a></li>
                             <li><a class="dropdown-item" href="#">英文</a></li>
                             <li>

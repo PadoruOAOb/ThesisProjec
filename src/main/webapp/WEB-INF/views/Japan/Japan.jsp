@@ -12,7 +12,7 @@
 			<!-- 第一課程 -->
 			<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1">
 				<div class="card">
-					<img src="./img/JP/JP01.png" class="card-img-top" alt="00 Course 1">
+					<img src="../../img/JP/JP01.png" class="card-img-top" alt="00 Course 1">
 					<div class="card-body m-0">
 						<h5 class="card-title fs-3">N5日文學習課程</h5>
 						<p class="card-text">
