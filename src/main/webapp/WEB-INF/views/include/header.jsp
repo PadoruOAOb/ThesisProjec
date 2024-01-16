@@ -22,7 +22,7 @@
     <!-- Bootstrap 導覽列 -->
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary fs-3 fixed-top p-0 ">
         <div class="container-fluid p-3 fs-3">
-            <a class="navbar-brand fs-1 text-white" href="/ThesisProjec/index.jsp">學習平台</a>
+            <a class="navbar-brand fs-1 text-white" href="/ThesisProjec/index.jsp">學無止境</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
