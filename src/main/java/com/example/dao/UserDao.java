@@ -16,5 +16,8 @@ public interface UserDao {
 //	3.根據使用者名稱查找使用者(登入用-單筆)
 	Optional<User> findUserByUsername(String username);
 	
+//	4. 修改密碼
+	Boolean updateUserPassword(Integer userId, String newPassword);
+	
 	
 }

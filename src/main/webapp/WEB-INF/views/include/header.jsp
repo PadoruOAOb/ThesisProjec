@@ -51,6 +51,9 @@
                             </li>
                             <li><a class="dropdown-item " href="#">聯絡我們</a></li>
                         </ul>
+                        <li class="nav-item">
+                        <a class="nav-link text-white" href="/ThesisProjec/mvc/user/ChangePassword">使用者</a>
+                    </li>
                     </li>
                 </ul>
                 

@@ -98,7 +98,7 @@ button:hover {
 
 	<script>
 		function validateForm() {
-			// 檢查出生年月日是否在當天註冊之前
+			// 檢查出生年月日是否在當天註冊之前暫時先不用
 			var birthdate = new Date(document.getElementById('birthdate').value);
 			var today = new Date();
 			if (birthdate >= today) {

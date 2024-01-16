@@ -49,6 +49,14 @@ public class UserDaoImpl implements UserDao {
 		} catch (EmptyResultDataAccessException e) {
 			return Optional.empty();
 		}
+		
+	}
+//	4. 修改密碼
+	@Override
+	public Boolean updateUserPassword(Integer userId, String newPassword) {
+		String sql = "update user set password = ? where userId = ?";
+		int rowcount = jdbcTemplate.update(sql, newPassword, userId);
+		return rowcount > 0;
 	}
 
 

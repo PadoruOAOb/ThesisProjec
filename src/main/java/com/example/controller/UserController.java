@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.dao.UserDao;
 import com.example.entiry.User;
-
 /**
  * http://localhost:8080/ThesisProjec/mvc/user/all
  */
@@ -123,4 +123,40 @@ public class UserController {
 		return "Japan/Japan";
 
 	}
+	//
+	@GetMapping("/ChangePassword")
+	public String ChangePassword(Model model) {
+		return "/ChangePassword/ChangePassword";
+	}
+	// 密碼變更		
+		@RequestMapping(value = "/ChangePassword", method = RequestMethod.POST)
+		public String changePassword(@RequestParam("oldPassword") String oldPassword, 
+									 @RequestParam("newPassword") List<String> newPasswords,
+									 HttpSession session,
+									 Model model) throws Exception {
+			
+			User user = (User)session.getAttribute("user");
+			
+			// 將 password 進行 AES 加密 -------------------------------------------------------------------
+			//final String KEY = KeyUtil.getSecretKey();
+			//SecretKeySpec aesKeySpec = new SecretKeySpec(KEY.getBytes(), "AES");
+			//byte[] encryptedOldPasswordECB = KeyUtil.encryptWithAESKey(aesKeySpec, oldPassword);
+			//String encryptedOldPasswordECBBase64 = Base64.getEncoder().encodeToString(encryptedOldPasswordECB);
+			//-------------------------------------------------------------------------------------------
+			
+			if(!user.getPassword().equals(oldPassword)) {
+				model.addAttribute("errorMessage", "原密碼錯誤");
+				return "/ChangePassword/ChangePassword";
+			}
+			if(!newPasswords.get(0).equals(newPasswords.get(1))) {
+				model.addAttribute("errorMessage", "二次新密碼不一致");
+				return "/ChangePassword/ChangePassword";
+			}
+			// 將新密碼加密
+			//byte[] encryptedNewPasswordECB = KeyUtil.encryptWithAESKey(aesKeySpec, newPasswords.get(0));
+			//String encryptedNewPasswordECBBase64 = Base64.getEncoder().encodeToString(encryptedNewPasswordECB);
+			// 進行密碼變更
+			userDaoImpl.updateUserPassword(user.getUserId(), newPasswords.get(1));
+			return "redirect:/mvc/user/login";
+		}
 }
