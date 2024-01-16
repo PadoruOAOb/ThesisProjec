@@ -80,7 +80,7 @@
             <h2 class="mb-4">購物車</h2>
             <!-- 購物車內容 -->
             <div class="cart-card">
-                <img src="./img/math.png" alt="課程圖片" style="max-width: 50%; height: auto;">
+                <img src="../../img/math.png" alt="課程收到" style="max-width: 50%; height: auto;">
                 <h4 class="mt-3">課程名稱: 三角函數課程</h4>
                 <p>價格: $99.99</p>
                 <!-- 其他購物車內容項目 -->

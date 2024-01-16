@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <link rel="icon" href="${pageContext.request.contextPath}/img/icon/icon.png" type="image/png">
+
 </head>
 
 <body>
@@ -29,13 +31,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="#">首頁</a>
+                        <a class="nav-link active text-white" aria-current="page" href="/ThesisProjec/index.jsp">首頁</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/ThesisProjec/OwnedCourses.jsp">我的課程</a>
+                        <a class="nav-link text-white" href="/ThesisProjec/mvc/user/MyCourses">我的課程</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/ThesisProjec/Cart.jsp">課程購物車</a>
+                        <a class="nav-link text-white" href="/ThesisProjec/mvc/user/cart">課程購物車</a>
                     </li>
                     <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"

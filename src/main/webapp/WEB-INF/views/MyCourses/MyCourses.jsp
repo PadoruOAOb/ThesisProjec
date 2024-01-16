@@ -28,7 +28,7 @@ body {
                 <h5 class="card-title">三角函數課程</h5>
                 <p class="card-text">準備成為函數大師吧!!</p>
                 <!-- 其他課程內容項目 -->
-                <a href="/ThesisProjec/Test001.jsp" class="btn btn-primary">點我立即上課</a>
+                <a href="/ThesisProjec/mvc/user/Test001" class="btn btn-primary">點我立即上課</a>
             </div>
         </div>
 

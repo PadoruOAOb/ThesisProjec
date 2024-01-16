@@ -62,6 +62,25 @@ public class UserController {
 	public String login(HttpSession session) {
 		return "login";
 	}
+	
+	//轉跳購物車頁面
+	@GetMapping("/cart")
+	public String cart(HttpSession session) {
+		return "Cart/Cart";
+	}
+	
+	//轉跳到我的課程
+	@GetMapping("/MyCourses")
+	public String MyCourses(HttpSession session) {
+		return "MyCourses/MyCourses";
+	}
+	
+	//轉跳到以擁有課程
+	@GetMapping("/Test001")
+	public String Test001(HttpSession session) {
+		return "MyCourses/OwnedCourses/Test001";
+	}
+	
 
 //      前台登入處理
 	@PostMapping("/login")
