@@ -116,6 +116,16 @@ public class UserController {
 			return "/login";
 		}
 	}
+	// 轉跳測試購物車
+		@GetMapping("/newCart")
+		public String newCart(Model model) {
+			return "webTest/newCart";
+		}
+//		轉跳測試購買頁面
+			@GetMapping("/Buy")
+			public String Buy(Model model) {
+				return "webTest/Buy";
+			}
 
 	// 轉跳註冊的頁面
 	@GetMapping("/register")
@@ -148,7 +158,8 @@ public class UserController {
 		return "Japan/Japan";
 
 	}
-	//
+	
+	//轉跳更改密碼
 	@GetMapping("/ChangePassword")
 	public String ChangePassword(Model model) {
 		return "/ChangePassword/ChangePassword";
@@ -184,4 +195,6 @@ public class UserController {
 			userDaoImpl.updateUserPassword(user.getUserId(), newPasswords.get(1));
 			return "redirect:/mvc/user/login";
 		}
+		
+		
 }

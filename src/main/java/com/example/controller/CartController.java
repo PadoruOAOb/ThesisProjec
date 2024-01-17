@@ -23,8 +23,6 @@ import com.example.entiry.CartItem;
 @RequestMapping("/cart")
 public class CartController {
 	
-	
-	
 	@PostMapping("/addToCart")
     public String addToCart(@RequestParam("cartItemJson") String cartItemJson, HttpSession session) {
         // 將JSON字符串轉換為CartItem對象
@@ -41,19 +39,24 @@ public class CartController {
         // 將CartItem添加到購物車
         cart.add(cartItem);
 
-        return "redirect:/newCart.jsp";
+        return "redirect:/mvc/user/newCart";
     }
 
+  
     @GetMapping("/cart")
     public String viewCart(HttpSession session, Model model) {
         // 獲取購物車
         List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
-
+        if (cart != null) {
+            for (CartItem item : cart) {
+                System.out.println("CartItem: " + item.getcourse() + " - " + item.getPrice());
+            }
+        }
         // 將購物車項目傳遞到視圖
-        model.addAttribute("cart", cart);
+        model.addAttribute("courses", cart);  // 將購物車設置為courses
 
         return "cart"; // 購物車頁面的JSP
     }
-    
+
 }
 

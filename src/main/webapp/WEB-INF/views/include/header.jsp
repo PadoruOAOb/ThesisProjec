@@ -65,10 +65,10 @@
 						href="/ThesisProjec/mvc/user/ChangePassword">使用者</a></li>
 					</li class="nav-item">
 					<li>
-					<a class="nav-link text-white" href="/ThesisProjec/newCart.jsp">測試中購物車</a>
+					<a class="nav-link text-white" href="/ThesisProjec/mvc/user/newCart">測試中購物車</a>
 					</li class="nav-item">
 					<li>
-					<a class="nav-link text-white" href="/ThesisProjec/Buy.jsp">測試中課程購買頁面</a>
+					<a class="nav-link text-white" href="/ThesisProjec/mvc/user/Buy">測試中課程購買頁面</a>
 					</li>
 					
 					

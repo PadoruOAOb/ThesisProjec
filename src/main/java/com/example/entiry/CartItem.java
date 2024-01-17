@@ -62,8 +62,9 @@ package com.example.entiry;
 		}
 
 		public void setCourse(Course course) {
-			this.course = course;
+		    this.course = course;
 		}
+
 
 		public void setProduct(Course course) {
 			this.course = course;
@@ -71,15 +72,10 @@ package com.example.entiry;
 
 		@Override
 		public String toString() {
-			return "CartItem [itemId=" + itemId + ", cartId=" + cartId + ", price=" + price + ", cart=" + cart
-					+ ", course=" + course + "]";
+		    return "CartItem [itemId=" + itemId + ", cartId=" + cartId + ", price=" + price + ", cart=" + cart + ", course=" + course + "]";
 		}
 
-
-		
-
 	
-		
 		
 }
 
