@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +16,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.gson.Gson;
-
-import spring.mvc.group_buy.model.entity.CartItem;
+import com.example.dao.UserDao;
+import com.example.entiry.CartItem;
 
 @Controller
 @RequestMapping("/cart")
 public class CartController {
+	
+	@Autowired()
+	@Qualifier("userDaoImpl")
+	UserDao userDaoImpl;
+	
 	@PostMapping("/addToCart")
     public String addToCart(@RequestParam("cartItemJson") String cartItemJson, HttpSession session) {
         // 將JSON字符串轉換為CartItem對象
@@ -35,7 +43,7 @@ public class CartController {
         // 將CartItem添加到購物車
         cart.add(cartItem);
 
-        return "redirect:/cart";
+        return "redirect:/newCart.jsp";
     }
 
     @GetMapping("/cart")
@@ -48,5 +56,6 @@ public class CartController {
 
         return "cart"; // 購物車頁面的JSP
     }
+    
 }
 

@@ -3,8 +3,8 @@ package com.example.entiry;
 import java.util.Date;
 import java.util.List;
 
-import spring.mvc.group_buy.model.entity.CartItem;
-import spring.mvc.group_buy.model.entity.User;
+import com.example.entiry.CartItem;
+import com.example.entiry.User;
 
 public class Cart {
 	private Integer cartId; // 購物車 Id

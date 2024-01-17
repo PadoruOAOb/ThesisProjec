@@ -11,6 +11,12 @@ import org.springframework.stereotype.Repository;
 
 import com.example.entiry.Service;
 import com.example.entiry.User;
+import com.example.entiry.Cart;
+import com.example.entiry.CartItem;
+import com.example.entiry.Course;
+
+
+
 
 
 
@@ -58,7 +64,18 @@ public class UserDaoImpl implements UserDao {
 		int rowcount = jdbcTemplate.update(sql, newPassword, userId);
 		return rowcount > 0;
 	}
-
-
+//	購物車/購物車項目(Cart/CartItem)
+//	1. 新增購物車資料
+	@Override
+    public void addCart(Cart cart) {
+			String sql = "insert into cart(userId) values(?)";
+			jdbcTemplate.update(sql, cart.getUserId());
+		}
+//	2.先測試是否有辦法抓到課程預設資料
+	@Override
+	public List<Course> findAllCourse() {
+		String sql = "select courseId, courseName, price FROM courses";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper(Course.class));
+	}
 
 }
