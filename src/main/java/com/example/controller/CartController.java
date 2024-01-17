@@ -23,9 +23,7 @@ import com.example.entiry.CartItem;
 @RequestMapping("/cart")
 public class CartController {
 	
-	@Autowired()
-	@Qualifier("userDaoImpl")
-	UserDao userDaoImpl;
+	
 	
 	@PostMapping("/addToCart")
     public String addToCart(@RequestParam("cartItemJson") String cartItemJson, HttpSession session) {

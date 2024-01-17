@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.dao.UserDao;
+import com.example.entiry.Course;
 import com.example.entiry.User;
 /**
  * http://localhost:8080/ThesisProjec/mvc/user/all
@@ -40,8 +41,13 @@ public class UserController {
 
 	@GetMapping("/all")
 	public String getAllUser(Model model) {
+		
 		List<User> users = userDaoImpl.findAllUser();
 		model.addAttribute("users", users);
+		
+		List<Course> courses = userDaoImpl.findAllCourse();
+		model.addAttribute("courses", courses);
+		
 		return "user_list";
 	}
 

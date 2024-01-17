@@ -74,7 +74,7 @@ public class UserDaoImpl implements UserDao {
 //	2.先測試是否有辦法抓到課程預設資料
 	@Override
 	public List<Course> findAllCourse() {
-		String sql = "select courseId, courseName, price FROM courses";
+		String sql = "select courseId, courseName, price FROM course";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper(Course.class));
 	}
 

@@ -7,4 +7,9 @@
 	<c:forEach items="${ users }" var="user">
 		<li>${ user.userId } , ${ user.username }, ${ user.email } , ${ user.level }</li>
 	</c:forEach>
+	
+	<c:forEach items="${ courses }" var="course">
+		<li>${ course.courseId } , ${ course.courseName }, ${ course.price }</li>
+	</c:forEach>
+	
 </ul>

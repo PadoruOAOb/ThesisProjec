@@ -13,8 +13,9 @@ public interface UserDao {
 //	使用者-User:
 //	1. 查詢所有使用者(多筆)
 	List<User> findAllUser();
+//  2. 查詢課程	
 	List<Course> findAllCourse();
-//	2.增加使用者
+//	2. 增加使用者
 	void addUser(User user);
 	
 //	3.根據使用者名稱查找使用者(登入用-單筆)
