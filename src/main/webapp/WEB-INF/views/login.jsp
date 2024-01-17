@@ -10,10 +10,12 @@
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+	    <link rel="icon" href="${pageContext.request.contextPath}/img/icon/icon.png" type="image/png">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            
         }
 
         .login-container {
@@ -47,9 +49,21 @@
             border: none;
             border-radius: 3px;
             cursor: pointer;
+            
         }
+        .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
     </style>
 </head>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+
 <body>
 
 <div class="login-container">
@@ -73,5 +87,7 @@
         </div>
     </form>
 </div>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
+
 </html>

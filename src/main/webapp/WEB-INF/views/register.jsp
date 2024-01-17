@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="${pageContext.request.contextPath}/img/icon/icon.png" type="image/png">
 <title>註冊</title>
 <link rel="stylesheet" href="/ThesisProjec/styles.css">
 <link
@@ -76,6 +77,9 @@ button:hover {
 }
 </style>
 </head>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+
+
 <body>
 
 	<form modelAttribute="user" action="./register" method="post" onsubmit="return validateForm()">
@@ -134,6 +138,9 @@ button:hover {
 	</script>
 
 </body>
+
+
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 
 
 </html>

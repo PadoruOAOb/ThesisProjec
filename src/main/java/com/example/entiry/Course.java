@@ -3,13 +3,20 @@ package com.example.entiry;
 import com.google.gson.Gson;
 
 public class Course {
-   private Integer courseId;  // 商品代號
-   private String courseName; // 商品名稱
-   private Integer price; // 商品價格
+   private Integer courseId;  // 課程代號
+   private String courseName; // 課程名稱
+   private Integer price; // 課程價格
    
    public Course() {
 		
 	}
+   
+public Course (Integer courseId, String courseName , Integer price) {
+	this.courseId = courseId;
+	this.courseName = courseName;
+	this.price = price;
+	
+}
 
 public Integer getCourseId() {
 	return courseId;
