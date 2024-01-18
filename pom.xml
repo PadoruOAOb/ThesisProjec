@@ -250,11 +250,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.15.2</version>
 		</dependency>
-		<dependency>
-			<groupId>GroupBuy</groupId>
-			<artifactId>GroupBuy</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+
   </dependencies>
 
 </project>

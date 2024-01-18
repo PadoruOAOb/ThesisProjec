@@ -27,7 +27,7 @@
 			    -->
                <!-- 使用 iframe 嵌入 YouTube 影片，修改 src 屬性為相應的嵌入代碼 -->
 	           <video width="640" height="360" controls preload="metadata" class="m-2">
-	            	<source src="/ThesisProjec/mvc/video/v2" type="video/mp4">
+	            	<source src="/ThesisProjec/mvc/video/v2/1" type="video/mp4">
 			   </video>
 			</div>
         </div>
