@@ -2,7 +2,7 @@ USE `learning` ;
 
 -- 建立 user
 select userId, username, password, email, level, authType, authId from user;
-insert into user(username, password, email, level) values ( 'OAOb', '123', 'OAOb@example.com', 1 );
+-- insert into user(username, password, email, level) values ( 'OAOb', '123', 'OAOb@example.com', 1 );
 
 -- 建立課程類別
 select typeId, typeName from type;
@@ -48,18 +48,17 @@ values('微積分入門課程','加入我們的微積分入門課程，探索數
 -- resource
 select resourceId, courseId, link, createTime, updateTime, type from resource;
 insert into resource (courseId, link,type) values (1,'/mvc/video/v2/1', 1);
-insert into resource (courseId, link,type) values (2,'/download/material1', 2);
+insert into resource (courseId, link,type) values (1,'/download/material1', 2);
 
 -- cart
 select cartId, userId, amount, isCheckOut, checkOutTime from cart;
 insert into cart(userId, amount, isCheckOut) values(1, 1500, 0);
 
 
-
 -- cart item
 select cartItemId, cartId, courseId, price, qty from cartItem;
 insert into cartItem(cartId, courseId, price) values (1,1,1000),(1,2,500);
-insert into cartItem(cartId, courseId, price) values (2,2,500);
+
 
 -- 結帳alter
 select cartId, userId, amount, isCheckOut, checkOutTime from cart where userId = 1;
@@ -75,15 +74,22 @@ select u.userId, u.username, cs.courseName, cs.courseDetail, rs.link
 from user u, course cs, resource rs ,cart c 
 where u.userId = 1 and cs.courseId =1  and c.isCheckOut = 1 ;
 
+-- 我的課程 > 點我立即日文課
+select u.userId, u.username, cs.courseName, cs.courseDetail, rs.link
+from user u, course cs, resource rs ,cart c 
+where u.userId = 1 and cs.courseId =2  and c.isCheckOut = 1 ;
+
 -- 課程購物車
 select u.userId ,u.username, cs.courseName ,cs.price,cs.courseImg, c.cartId
 from user u, course cs, cart c 
 where u.userId = 1 and c.userId =1 and  c.isCheckOut = 0;
 
 -- 選擇課程 > 數學
-select u.userId, u.username, cs.courseName, cs.courseDescription ,cs.courseImg
-from user u, course cs 
-where  u.userId = 1
+select u.userId, u.username, cs.courseName, cs.courseDescription ,cs.courseImg ,cs.typeId
+from user u, course cs ,type t
+where  u.userId = 1 and  t.typeId=1  and cs.typeId= 1 ;
 
-
-
+-- 選擇課程 > 日文
+select u.userId, u.username, cs.courseName, cs.courseDescription ,cs.courseImg ,cs.typeId
+from user u, course cs ,type t
+where  u.userId = 1 and  t.typeId=2  and cs.typeId= 2 ;
