@@ -27,6 +27,11 @@ public interface UserDao {
 //  購物車-Cart	
 //	1. 新增購物車資料
 	void addCart(Cart cart);
+//  課程-Course	
+//	1. 根據購物車ID查找購物車資料(單筆)
+	Optional<Cart> findCartById(Integer cartId);
+	
+	
 
 
 	

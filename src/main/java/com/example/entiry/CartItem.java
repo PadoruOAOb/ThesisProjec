@@ -4,23 +4,13 @@ package com.example.entiry;
 	public class CartItem {
 		private Integer itemId; // 購物車明細 Id
 		private Integer cartId; // 購物車 Id
-		private double price;
+		private Integer courseId; // 課程 Id
+		private Integer price;  // 明細
+		private Integer qty; // 數量
+		
 		private Cart cart; // 購物車物件(關聯欄位)
 		private Course course; // 商品物件(關聯欄位)
 		
-		public CartItem() {
-			
-		}
-		
-		public CartItem(Integer itemId, Integer cartId ) {
-			this.itemId = itemId;
-			this.cartId = cartId;
-
-			
-			// 根據 productId 找到 Product 物件
-			// 根據 cartId 找到 Cart 物件
-		}
-
 		public Integer getItemId() {
 			return itemId;
 		}
@@ -37,6 +27,30 @@ package com.example.entiry;
 			this.cartId = cartId;
 		}
 
+		public Integer getCourseId() {
+			return courseId;
+		}
+
+		public void setCourseId(Integer courseId) {
+			this.courseId = courseId;
+		}
+
+		public Integer getPrice() {
+			return price;
+		}
+
+		public void setPrice(Integer price) {
+			this.price = price;
+		}
+
+		public Integer getQty() {
+			return qty;
+		}
+
+		public void setQty(Integer qty) {
+			this.qty = qty;
+		}
+
 		public Cart getCart() {
 			return cart;
 		}
@@ -45,37 +59,24 @@ package com.example.entiry;
 			this.cart = cart;
 		}
 
-		public Course getcourse() {
-			return course;
-		}
-
-		public double getPrice() {
-			return price;
-		}
-
-		public void setPrice(double price) {
-			this.price = price;
-		}
-
 		public Course getCourse() {
 			return course;
 		}
 
 		public void setCourse(Course course) {
-		    this.course = course;
+			this.course = course;
 		}
 
-
-		public void setProduct(Course course) {
-			this.course = course;
+		public CartItem() {
+			
 		}
 
 		@Override
 		public String toString() {
-		    return "CartItem [itemId=" + itemId + ", cartId=" + cartId + ", price=" + price + ", cart=" + cart + ", course=" + course + "]";
+			return "CartItem [itemId=" + itemId + ", cartId=" + cartId + ", courseId=" + courseId + ", price=" + price
+					+ ", qty=" + qty + ", cart=" + cart + ", course=" + course + "]";
 		}
-
-	
+		
 		
 }
 

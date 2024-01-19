@@ -15,11 +15,6 @@ import com.example.entiry.Cart;
 import com.example.entiry.CartItem;
 import com.example.entiry.Course;
 
-
-
-
-
-
 @Repository("userDaoImpl")
 public class UserDaoImpl implements UserDao {
 
@@ -76,6 +71,11 @@ public class UserDaoImpl implements UserDao {
 	public List<Course> findAllCourse() {
 		String sql = "select courseId, courseName, price FROM course";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper(Course.class));
+	}
+	@Override
+	public Optional<Cart> findCartById(Integer cartId) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 }
