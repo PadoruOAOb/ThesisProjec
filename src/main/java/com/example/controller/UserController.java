@@ -1,10 +1,8 @@
 package com.example.controller;
 
-import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
-import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.dao.UserDao;
 import com.example.entiry.Course;
@@ -42,10 +39,10 @@ public class UserController {
 	@GetMapping("/all")
 	public String getAllUser(Model model) {
 		
-		List<User> users = userDaoImpl.findAllUser();
+		List<User> users = userDaoImpl.findAllUsers();
 		model.addAttribute("users", users);
 		
-		List<Course> courses = userDaoImpl.findAllCourse();
+		List<Course> courses = null;
 		model.addAttribute("courses", courses);
 		
 		return "user_list";
@@ -57,7 +54,7 @@ public class UserController {
 	// http://localhost:8080/ThesisProjec/mvc/user/register
 	public String addUser(@ModelAttribute User user, Model model) {
 		// 在這裡處理註冊邏輯，例如將用戶信息保存到數據庫中
-		userDaoImpl.addUser(user);
+		//userDaoImpl.addUser(user);
 		// 註冊成功後可以進行一些操作，例如顯示成功消息
 		model.addAttribute("message", "註冊成功！");
 		return "login";
@@ -93,7 +90,7 @@ public class UserController {
 	public String login(@RequestParam("username") String username, @RequestParam("password") String password,
 // 						    @RequestParam("code") String code,
 			HttpSession session, Model model) throws Exception {
-		Optional<User> userOpt = userDaoImpl.findUserByUsername(username);
+		Optional<User> userOpt = null;
 		if (userOpt.isPresent()) {
 			User user = userOpt.get();
 //    			// 將 password 進行 AES 加密 -------------------------------------------------------------------
@@ -192,7 +189,7 @@ public class UserController {
 			//byte[] encryptedNewPasswordECB = KeyUtil.encryptWithAESKey(aesKeySpec, newPasswords.get(0));
 			//String encryptedNewPasswordECBBase64 = Base64.getEncoder().encodeToString(encryptedNewPasswordECB);
 			// 進行密碼變更
-			userDaoImpl.updateUserPassword(user.getUserId(), newPasswords.get(1));
+			//userDaoImpl.updateUserPassword(user.getUserId(), newPasswords.get(1));
 			return "redirect:/mvc/user/login";
 		}
 		
