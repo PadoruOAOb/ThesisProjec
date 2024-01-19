@@ -17,8 +17,8 @@ public class UserDaoTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("/WEB-INF/springmvc-servlet.xml");
 		UserDaoImpl userDaoImpl = ctx.getBean("userDaoImpl", UserDaoImpl.class);
 		
-		//List<User> users = userDaoImpl.findAllUsers();
-		//System.out.println(users);
+		List<User> users = userDaoImpl.findAllUsers();
+		System.out.println(users);
 		
 //		Optional<User> userOpt = userDaoImpl.findUserByUsername("aweit");
 //		if(userOpt.isPresent()) {
@@ -37,6 +37,8 @@ public class UserDaoTest {
 //		Integer userId = user.getUserId();
 //		String password = "654321";
 //		userDaoImpl.updateUserPassword(password, userId);
+		
+		
 		
 	}
 

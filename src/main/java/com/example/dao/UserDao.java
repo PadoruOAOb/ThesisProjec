@@ -13,6 +13,8 @@ public interface UserDao {
 	
 	Optional<User> findUserByUserId(Integer userId);
 	
+	Optional<User> authenticateUserByCredentials(String username, String password);
+
 	int addUser(User user);
 	
 	int updateUserPassword(String password,Integer userId);

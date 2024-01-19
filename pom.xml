@@ -258,6 +258,11 @@
 		    <version>1.18.30</version>
 		    <scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>GroupBuy</groupId>
+			<artifactId>GroupBuy</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
   </dependencies>
 
 </project>

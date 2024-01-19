@@ -2,6 +2,7 @@ package com.example.dao;
 
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,6 +39,12 @@ public class CartDaoImpl implements CartDao {
 	public List<Cart> findAllCarts() {
 		String sql = "SELECT cartId, userId, amount, isCheckOut, checkOutTime FROM cart";
 		return jdbcTemplate.query(sql, rowMapper);
+	}
+
+	@Override
+	public Optional<Cart> findNoneCheckoutCartByUserId(Integer userId) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 }

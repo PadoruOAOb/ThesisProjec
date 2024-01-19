@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -16,12 +18,14 @@ import org.springframework.stereotype.Repository;
 
 import com.example.entiry.User;
 
+import spring.mvc.group_buy.model.entity.Service;
+
 @Repository
 public class UserDaoImpl implements UserDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
+
 	RowMapper<User> rowMapper = (ResultSet rs, int rowNum) -> {
 		User user = new User();
 		user.setUserId(rs.getInt("userId"));
@@ -31,9 +35,9 @@ public class UserDaoImpl implements UserDao {
 		user.setLevel(rs.getInt("level"));
 		user.setAuthType(rs.getString("authType"));
 		user.setAuthId(rs.getString("authId"));
-		return user; 
+		return user;
 	};
-	
+
 	@Override
 	public List<User> findAllUsers() {
 		String sql = "SELECT userId, username, password, email, level, authType, authId FROM user";
@@ -44,18 +48,18 @@ public class UserDaoImpl implements UserDao {
 	public Optional<User> findUserByUsername(String username) {
 		String sql = "SELECT userId, username, password, email, level, authType, authId FROM user where username=?";
 		try {
-			User user = jdbcTemplate.queryForObject(sql, rowMapper,username);
+			User user = jdbcTemplate.queryForObject(sql, rowMapper, username);
 			return Optional.of(user);
 		} catch (Exception e) {
 			return Optional.empty();
 		}
 	}
-	
+
 	@Override
 	public Optional<User> findUserByUserId(Integer userId) {
 		String sql = "SELECT userId, username, password, email, level, authType, authId FROM user where userId=?";
 		try {
-			User user = jdbcTemplate.queryForObject(sql, rowMapper,userId);
+			User user = jdbcTemplate.queryForObject(sql, rowMapper, userId);
 			return Optional.of(user);
 		} catch (Exception e) {
 			return Optional.empty();
@@ -64,19 +68,18 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int addUser(User user) {
-		
+
 		String sql = "insert into user(username, password, email) values (?,?,?) ";
 
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 
-		int rowsAffected = jdbcTemplate.update(
-				(Connection connection) -> {
-					PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-					ps.setString(1, user.getUsername());
-					ps.setString(2, user.getPassword());
-					ps.setString(3, user.getEmail());
-					return ps;
-				}, keyHolder);
+		int rowsAffected = jdbcTemplate.update((Connection connection) -> {
+			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, user.getUsername());
+			ps.setString(2, user.getPassword());
+			ps.setString(3, user.getEmail());
+			return ps;
+		}, keyHolder);
 
 		if (rowsAffected > 0) {
 			user.setUserId(keyHolder.getKey().intValue());
@@ -86,14 +89,27 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int updateUserPassword(String password,Integer userId) {
+	public int updateUserPassword(String password, Integer userId) {
 		String sql = "update user set password=? where userId=?";
-		return jdbcTemplate.update(sql, password,userId);
+		return jdbcTemplate.update(sql, password, userId);
 	}
 
 	@Override
 	public int removeUser(Integer userId) {
 		String sql = "delete user where userId=?";
-		return jdbcTemplate.update(sql,userId);
+		return jdbcTemplate.update(sql, userId);
 	}
+
+	@Override
+    public Optional<User> authenticateUserByCredentials(String username, String password) {
+        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+        try {       
+            User user = jdbcTemplate.queryForObject(sql, new Object[]{username, password}, new BeanPropertyRowMapper<>(User.class));
+            return Optional.of(user);
+        } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
+
+	
 }
