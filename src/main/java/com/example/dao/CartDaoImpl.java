@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.example.entiry.Cart;
+import com.example.entiry.CartItem;
 import com.example.entiry.User;
 
 /**
@@ -32,7 +33,7 @@ public class CartDaoImpl implements CartDao {
 		cart.setAmount(rs.getInt("amount"));
 		cart.setIsCheckout(rs.getInt("isCheckOut"));
 		cart.setCheckoutTime(rs.getDate("checkOutTime"));
-		return cart; 
+		return cart;
 	};
 	
 	@Override
@@ -45,6 +46,50 @@ public class CartDaoImpl implements CartDao {
 	public Optional<Cart> findNoneCheckoutCartByUserId(Integer userId) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
+	}
+
+	
+
+	@Override
+	public void addCartItem(CartItem cartItem) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'addCartItem'");
+	}
+
+	@Override
+	public void updateCartItem(CartItem cartItem) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'updateCartItem'");
+	}
+
+	@Override
+	public void deleteCartItem(int cartItemId) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'deleteCartItem'");
+	}
+
+	@Override
+	public CartItem getCartItemById(Integer cartItemId) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getCartItemById'");
+	}
+
+	@Override
+	public CartItem getCartItemByCourse(Integer cartId, Integer courseId) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getCartItemByCourse'");
+	}
+
+	@Override
+	public void updateCartItemQuantity(Integer cartItemId, Integer newQuantity) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'updateCartItemQuantity'");
+	}
+
+	@Override
+	public void deleteCartItemByCourse(Integer cartId, Integer courseId) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'deleteCartItemByCourse'");
 	}
 
 }

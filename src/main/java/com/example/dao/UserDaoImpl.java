@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Repository;
 
 import com.example.entiry.User;
 
-import spring.mvc.group_buy.model.entity.Service;
 
 @Repository
 public class UserDaoImpl implements UserDao {
