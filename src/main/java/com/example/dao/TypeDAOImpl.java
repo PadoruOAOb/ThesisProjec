@@ -11,21 +11,20 @@ import org.springframework.stereotype.Repository;
 import com.example.entiry.CartItem;
 import com.example.entiry.Type;
 
-Integer typeId;
-
-String typeName;
 
 @Repository
 public class TypeDAOImpl implements TypeDao {
+	
+	@Autowired JdbcTemplate jdbcTemplate;
 
 	RowMapper<Type> rowMapper=(ResultSet rs,int rowNum)->{
 		Type type=new Type();
-		type.typeId(rs.getInt("typeId"));
-		type.settypeName(rs.getString("typeName"));
+		type.setTypeId(rs.getInt("typeId"));
+		type.setTypeName(rs.getString("typeName"));
 		return type;
-	}
+	};
 
-	@Autowired JdbcTemplate jdbcTemplate;
+
 
 	@Override public void updateType(Type type)
 	{

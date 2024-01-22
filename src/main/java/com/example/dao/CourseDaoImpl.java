@@ -26,15 +26,15 @@ public class CourseDaoImpl implements CourseDao {
 	
 	RowMapper<Course> rowMapper = (ResultSet rs, int rowNum) -> {
 		Course course = new Course();
-		course.setcourseId(rs.getInt("courseId"));
-		course.setcourseName(rs.getString("courseName"));
-		course.setprice(rs.getString("price"));
-		course.setcourseDescription(rs.getString("courseDescription"));
-		course.setteacher(rs.getInt("teacher"));
-		course.setcourseDetail(rs.getString("courseDetail"));
-		course.setcourseImg(rs.getString("courseImg"));
-		course.settypeId(rs.getInt("typeId"));
-		course.createTime(rs.getTimestamp("createTime"));
+		course.setCourseId(rs.getInt("courseId"));
+		course.setCourseName(rs.getString("courseName"));
+		course.setPrice(rs.getInt("price"));
+		course.setCourseDescription(rs.getString("courseDescription"));
+		course.setTeacher(rs.getInt("teacher"));
+		course.setCourseDetail(rs.getString("courseDetail"));
+		course.setCourseImg(rs.getString("courseImg"));
+		course.setTypeId(rs.getInt("typeId"));
+		course.setCreateTime(rs.getDate("createTime"));
 		return course;
 	};
 	@Override
