@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -41,13 +42,13 @@ public class CartDaoImpl implements CartDao {
 		cart.setCheckoutTime(rs.getDate("checkOutTime"));
 		return cart;
 	};
-	
+//	1. 查詢所有商品(多筆)測試成功
 	@Override
 	public List<Cart> findAllCarts() {
 		String sql = "SELECT cartId, userId, amount, isCheckOut, checkOutTime FROM cart";
 		return jdbcTemplate.query(sql, rowMapper);
 	}
-
+//	2. 新增購物車資料
 	@Override
 	public int addCart(Cart cart) {
 		String sql = "insert into cart(userId, amount, isCheckOut)  values (?,?,?)";
@@ -69,11 +70,57 @@ public class CartDaoImpl implements CartDao {
 
 	}
 	
+//	3. 根據購物車ID查找購物車資料(單筆)
+    @Override
+	public Optional<Cart> findCartById(Integer cartId) {
+	    try {
+	        String sql = "select cartId, userId, isCheckout, checkoutTime from cart where userId = ? and isCheckout = ?";
+	        Cart cart = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Cart.class), cartId);
+	        return Optional.ofNullable(cart);
+	    } catch (EmptyResultDataAccessException e) {
+	        return Optional.empty();
+	    }
+	}
+    
+//	4. 根據使用者ID及結帳狀態來查找其所有購物車資料(多筆)
 	@Override
 	public List<Cart> findCartsbyUserIdAndCheckoutStatus(Integer userId, Integer isCheckout) {
 		String sql = "select cartId, userId, isCheckout, checkoutTime from cart where userId = ? and isCheckout = ?";
 		List<Cart> carts = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Cart.class), userId, isCheckout);
 		return carts;
 	}
+
+//	5. 根據使用者ID來查找其未結帳的購物車資料(單筆)
+	@Override
+	public Optional<Cart> findNoneCheckoutCartByUserId(Integer userId) {
+		try {
+			String sql = "select cartId, userId, isCheckout, checkoutTime from cart "
+					+ "where userId = ? and (isCheckout = 0 or isCheckout is null)";
+			Cart cart = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Cart.class), userId);
+			if(cart != null) {
+//				enrichCartWithDetails(cart);
+			}
+			return Optional.ofNullable(cart);
+		
+		} catch (EmptyResultDataAccessException e) {
+			return Optional.empty();
+		}
+	}
+	
+//	6.根據使用者ID將該使用者的購物車設置為已結帳狀態(前台的事件)
+	@Override
+	public int checkoutCartByUserId(Integer userId) {
+		String sql = "update cart set isCheckout = true where userId = ? and (isCheckout = false or isCheckout is null)";
+		return jdbcTemplate.update(sql, userId);
+	}
+	
+//	7. 根據購物車ID將購物車設置為已結帳狀態(後台的事件)
+	@Override
+	public int checkoutCartById(Integer cartId) {
+		String sql = "update cart set isCheckout = true where cartId = ? and (isCheckout = false or isCheckout is null)";
+		return jdbcTemplate.update(sql, cartId);
+	}
 }
+
+
 
