@@ -13,6 +13,5 @@ public interface CartDao {
     
 	int addCart(Cart cart);
 
-
-
+	List<Cart> findCartsbyUserIdAndCheckoutStatus(Integer userId, Integer isCheckout);
 }

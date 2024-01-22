@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+
 <head>
 
 </head>
@@ -10,21 +11,18 @@
 		<h2 class="mb-4">數學課程列表</h2>
 		<div class="row">
 			<!-- 第一個課程 -->
+			<c:forEach courses="${ course.courses }" var="course">
 			<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1 ">
 				<div class="card">
 					<img src="../../img/math.png" class="card-img-top" alt="Math Course 1">
 					<div class="card-body m-0">
-						<h5 class="card-title fs-3">三角函數專屬課程</h5>
+						<h5 class="card-title fs-3">${ course.courseName }</h5>
 						<p class="card-text">
-							歡迎加入我們的三角函數專屬課程，這是一個精心設計的課程，旨在深入探討正弦、餘弦和正切等三角函數的神奇世界。無論你是初學者還是已經對數學充滿熱情，這個課程都將為你打開全新的數學視野。<br>
-							課程亮點： <br> 理論和實踐結合：
-							我們將理論知識與實際應用相結合，通過生動的實例和實際問題，讓你更好地理解三角函數的本質。<br>
-							生動教學：由資深數學教師授課，以清晰而生動的方式解釋三角函數的概念，讓學習變得輕鬆有趣。<br>
-							實用應用：學會如何應用三角函數解決現實生活中的問題，包括物理、工程和計算機科學等多個領域。
+							${ course.${ course.courseName } }
 						</p>
 						<a class="btn btn-primary" href="/ThesisProjec/mvc/user/trigFunctions">詳細課程
 						</a>
-
+</c:forEach>
 					</div>
 				</div>
 			</div>
@@ -68,5 +66,6 @@
 		</div>
 	</main>
 </body>
+
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

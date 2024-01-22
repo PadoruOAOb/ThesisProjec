@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -66,6 +67,13 @@ public class CartDaoImpl implements CartDao {
 
 		return rowsAffected;
 
+	}
+	
+	@Override
+	public List<Cart> findCartsbyUserIdAndCheckoutStatus(Integer userId, Integer isCheckout) {
+		String sql = "select cartId, userId, isCheckout, checkoutTime from cart where userId = ? and isCheckout = ?";
+		List<Cart> carts = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Cart.class), userId, isCheckout);
+		return carts;
 	}
 }
 
