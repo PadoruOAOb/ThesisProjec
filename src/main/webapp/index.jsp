@@ -4,6 +4,7 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 
  <main>
+ 
         <img src="./img/Home.png" alt="首頁圖片" class= "Home" >
         <div class="d-flex flex-column bd-highlight mb-3 align-items-center">
         <section class="featured-course w-50" role="button">

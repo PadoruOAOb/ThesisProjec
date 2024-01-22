@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.dao.CourseDao;
 import com.example.dao.UserDao;
 import com.example.entiry.Course;
 import com.example.entiry.User;
@@ -26,7 +27,7 @@ import com.example.entiry.User;
 @RequestMapping("/user")
 public class UserController {
 
-	@Autowired()
+	@Autowired
 	@Qualifier("userDaoImpl")
 	UserDao userDaoImpl;
 
@@ -185,13 +186,16 @@ public class UserController {
 				model.addAttribute("errorMessage", "二次新密碼不一致");
 				return "/ChangePassword/ChangePassword";
 			}
+			
 			// 將新密碼加密
 			//byte[] encryptedNewPasswordECB = KeyUtil.encryptWithAESKey(aesKeySpec, newPasswords.get(0));
 			//String encryptedNewPasswordECBBase64 = Base64.getEncoder().encodeToString(encryptedNewPasswordECB);
 			// 進行密碼變更
 			//userDaoImpl.updateUserPassword(user.getUserId(), newPasswords.get(1));
+			
 			return "redirect:/mvc/user/login";
 		}
+
 		
 		
 }

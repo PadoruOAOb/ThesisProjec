@@ -1,5 +1,13 @@
 package com.example.dao;
 
-public class ResourceDao {
+import java.util.Optional;
 
+import com.example.entiry.Resource;
+import com.example.entiry.User;
+
+public interface ResourceDao {
+
+	int updateLink(String link,Integer resourceId);
+	
+	Optional<Resource> findLinkByResourceId(Integer resourceId);
 }

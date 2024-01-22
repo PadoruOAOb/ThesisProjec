@@ -31,7 +31,7 @@ public class UserDaoTest {
 //		user.setEmail("aweit123@example.com");
 //		userDaoImpl.addUser(user);
 //		System.out.println(user);
-		
+//		
 //		Optional<User> userOpt = userDaoImpl.findUserByUsername("aweit");
 //		User user = userOpt.get();
 //		Integer userId = user.getUserId();

@@ -1,11 +1,16 @@
 package com.example.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.example.entiry.CartItem;
@@ -34,39 +39,30 @@ public class CartItemDaolmpl implements CartItemDao {
 	}
 
 	@Override
-	public void addCartItem(CartItem cartItem) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'addCartItem'");
+	public int addCartItem(CartItem cartItem) {
+		String sql = "insert into cartItem(cartId, courseId, price) values (?,?,?) ";
+		
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+
+		int rowsAffected = jdbcTemplate.update((Connection connection) -> {
+			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			ps.setInt(1, cartItem.getCartId());
+			ps.setInt(2, cartItem.getCourseId());
+			ps.setInt(3, cartItem.getPrice());
+			return ps;
+		}, keyHolder);
+
+		if (rowsAffected > 0) {
+			cartItem.setCartItemId(keyHolder.getKey().intValue());
+		}
+
+		return rowsAffected;
 	}
 
 	@Override
 	public void updateCartItem(CartItem cartItem) {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'updateCartItem'");
-	}
-
-	@Override
-	public void deleteCartItem(int cartItemId) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'deleteCartItem'");
-	}
-
-	@Override
-	public CartItem getCartItemById(Integer cartItemId) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getCartItemById'");
-	}
-
-	@Override
-	public CartItem getCartItemByCourse(Integer cartId, Integer courseId) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getCartItemByCourse'");
-	}
-
-	@Override
-	public void updateCartItemQuantity(Integer cartItemId, Integer newQuantity) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'updateCartItemQuantity'");
 	}
 
 	@Override

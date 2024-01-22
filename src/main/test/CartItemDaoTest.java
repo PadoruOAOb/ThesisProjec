@@ -16,7 +16,16 @@ public class CartItemDaoTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("/WEB-INF/springmvc-servlet.xml");
 		CartItemDaolmpl cartItemDaoImpl = ctx.getBean("cartItemDaolmpl", CartItemDaolmpl.class);
 
-		List<CartItem> cartItems = cartItemDaoImpl.findAllCartItems();
-		System.out.println(cartItems);
+//		List<CartItem> cartItems = cartItemDaoImpl.findAllCartItems();
+//		System.out.println(cartItems);
+		
+		CartItem cartItem = new CartItem();
+		cartItem.setCartId(1);
+		cartItem.setCourseId(2);
+		cartItem.setPrice(100);
+		cartItemDaoImpl.addCartItem(cartItem);
+		System.out.println(cartItem);
+		
 	}
+	
 }

@@ -1,12 +1,18 @@
 package com.example.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.example.entiry.Course;
@@ -38,20 +44,39 @@ public class CourseDaoImpl implements CourseDao {
 		return course;
 	};
 	@Override
-	public Course getCourseById(int courseId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Course> findAllCourses() {
+			String sql = "SELECT courseId, courseName, courseDescription, courseDetail, courseImg, teacher, price, typeId, createTime FROM course";
+			return jdbcTemplate.query(sql, rowMapper);		
 	}
 	@Override
-	public List<Course> getAllCourses() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void addCourse(Course course) {
-		// TODO Auto-generated method stub
+	public int addCourse(Course course) {
+		String sql = "insert into course (courseName, courseDescription, courseDetail, courseImg, teacher, price, typeId)"
+				+ "    values (?,?,?,?,?,?,?)";
 		
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+
+		int rowsAffected = jdbcTemplate.update((Connection connection) -> {
+			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+			ps.setString(1, course.getCourseName());
+			ps.setString(2, course.getCourseDescription());
+			ps.setString(3, course.getCourseDetail());
+			ps.setString(4, course.getCourseImg());
+			ps.setInt(5, course.getTeacher());
+			ps.setInt(6, course.getPrice());
+			ps.setInt(7, course.getTypeId());
+			
+			return ps;
+		}, keyHolder);
+
+		if (rowsAffected > 0) {
+			course.setCourseId(keyHolder.getKey().intValue());
+		}
+
+		return rowsAffected;
 	}
+		
+	
 	@Override
 	public void updateCourse(Course course) {
 		// TODO Auto-generated method stub
@@ -62,5 +87,6 @@ public class CourseDaoImpl implements CourseDao {
 		// TODO Auto-generated method stub
 		
 	}
+
 	
 }

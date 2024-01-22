@@ -5,14 +5,12 @@ import java.util.List;
 import com.example.entiry.Course;
 
 public interface CourseDao {
-	// 根據課程ID查詢課程
-    Course getCourseById(int courseId);
 
     // 查詢所有課程
-    List<Course> getAllCourses();
+    List<Course> findAllCourses();
 
     // 添加新課程
-    void addCourse(Course course);
+    int addCourse(Course course);
 
     // 更新課程信息
     void updateCourse(Course course);

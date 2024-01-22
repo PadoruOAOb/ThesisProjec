@@ -13,7 +13,8 @@ public class Cart {
 	
 	private Integer cartId;
 	
-	//private Integer userId;
+	private Integer userId;
+	
 	private User user;
 	
 	private Integer isCheckout;
