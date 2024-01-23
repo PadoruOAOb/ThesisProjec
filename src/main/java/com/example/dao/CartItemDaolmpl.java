@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -60,14 +61,20 @@ public class CartItemDaolmpl implements CartItemDao {
 	}
 
 	@Override
-	public void updateCartItem(CartItem cartItem) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'updateCartItem'");
-	}
-
-	@Override
 	public void deleteCartItemByCourse(Integer cartId, Integer courseId) {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'deleteCartItemByCourse'");
+	}
+
+	@Override
+	public List<CartItem> findCartItemsByUserIdAndCheckout(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+    @Override
+	public List<Map<String, Object>> calculateTotalAmountPerUser() {
+	    String sql = "SELECT userId, SUM(amount) as totalAmount FROM cart WHERE isCheckout = true GROUP BY userId";
+	    return jdbcTemplate.queryForList(sql);
 	}
 }

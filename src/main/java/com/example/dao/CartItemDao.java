@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.example.entiry.CartItem;
 
@@ -10,8 +11,13 @@ public interface CartItemDao {
 
 	int addCartItem(CartItem cartItem);
 
-	void updateCartItem(CartItem cartItem);
-
     // 刪除特定購物車中特定課程的項目
     void deleteCartItemByCourse(Integer cartId, Integer courseId);
+     
+    List<CartItem> findCartItemsByUserIdAndCheckout(int userId);
+    
+    List<Map<String, Object>> calculateTotalAmountPerUser();
+    
+
+    
 }
