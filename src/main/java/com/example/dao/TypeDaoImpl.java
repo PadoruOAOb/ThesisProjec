@@ -4,16 +4,18 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.example.entiry.CartItem;
+import com.example.entiry.Course;
 import com.example.entiry.Type;
 
 
 @Repository
-public class TypeDAOImpl implements TypeDao {
+public class TypeDaoImpl implements TypeDao {
 	
 	@Autowired JdbcTemplate jdbcTemplate;
 
@@ -24,29 +26,14 @@ public class TypeDAOImpl implements TypeDao {
 		return type;
 	};
 
-
-
-	@Override public void updateType(Type type)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
 	@Override
-	public void deleteType(Integer typeId) {
-		// TODO Auto-generated method stub
-		
+	public List<Course> findCourseByTypeId(Integer typeId) {
+	    String sql = "SELECT * FROM course WHERE typeId = ?";
+	    return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Course.class), typeId);
 	}
 
-	@Override
-	public Type getTypeById(Integer typeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public List<Type> getAllTypes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
+
 }

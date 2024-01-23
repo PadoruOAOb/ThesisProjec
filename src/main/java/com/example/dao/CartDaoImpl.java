@@ -122,14 +122,14 @@ public class CartDaoImpl implements CartDao {
 //	6.根據使用者ID將該使用者的購物車設置為已結帳狀態(前台的事件)
 	@Override
 	public int checkoutCartByUserId(Integer userId) {
-	    String sql = "update cart set isCheckout = true where userId = ? and (isCheckout = 0 or isCheckout is null)";
+	    String sql = "update cart set isCheckout = 1 where userId = ? and (isCheckout = 0 or isCheckout is null)";
 	    return jdbcTemplate.update(sql, userId);
 	}
 
 //	7. 根據購物車ID將購物車設置為已結帳狀態(後台的事件)
 	@Override
 	public int checkoutCartById(Integer cartId) {
-		String sql = "update cart set isCheckout = true where cartId = ? and (isCheckout = 0 or isCheckout is null)";
+		String sql = "update cart set isCheckout = 1 where cartId = ? and (isCheckout = 0 or isCheckout is null)";
 		return jdbcTemplate.update(sql, cartId);
 	}
 }

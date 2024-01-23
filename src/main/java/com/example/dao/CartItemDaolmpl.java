@@ -61,20 +61,16 @@ public class CartItemDaolmpl implements CartItemDao {
 	}
 
 	@Override
-	public void deleteCartItemByCourse(Integer cartId, Integer courseId) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'deleteCartItemByCourse'");
+	public void removeCartItemByCourse(Integer cartId, Integer courseId) {
+		String sql = "DELETE FROM cartItems WHERE cartId = ? AND courseId = ?";
+		jdbcTemplate.query(sql, rowMapper);
 	}
 
 	@Override
 	public List<CartItem> findCartItemsByUserIdAndCheckout(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM cartItem JOIN cart ON cartItem.cartId = cart.cartId WHERE userId = 1 AND isCheckout = 1;";
+		return jdbcTemplate.query(sql, rowMapper);
 	}
 	
-    @Override
-	public List<Map<String, Object>> calculateTotalAmountPerUser() {
-	    String sql = "SELECT userId, SUM(amount) as totalAmount FROM cart WHERE isCheckout = true GROUP BY userId";
-	    return jdbcTemplate.queryForList(sql);
-	}
+ 
 }
