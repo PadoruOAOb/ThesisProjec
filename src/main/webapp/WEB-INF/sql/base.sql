@@ -181,3 +181,10 @@ where  u.userId = 1 and  t.typeId=1  and cs.typeId= 1 ;
 select u.userId, u.username, cs.courseName, cs.courseDescription ,cs.courseImg ,cs.typeId
 from user u, course cs ,type t
 where  u.userId = 1 and  t.typeId=2  and cs.typeId= 2 ;
+
+SELECT * FROM cartItem JOIN cart ON cartItem.cartId = cart.cartId WHERE userId = 1 AND isCheckout = 1 ;
+
+SELECT price FROM course WHERE courseName = '三角函數專屬課程';
+
+
+

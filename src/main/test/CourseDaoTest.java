@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Controller;
+
 
 import com.example.dao.CourseDao;
 import com.example.dao.CourseDaoImpl;
@@ -35,8 +35,16 @@ public class CourseDaoTest {
 //		courseDaoImpl.addCourse(course);
 //		System.out.println(course);
 
-		List<Course> courses = courseDaoImpl.findAllCourses();
-		System.out.println(courses);
+//		List<Course> courses = courseDaoImpl.findAllCourses();
+//		System.out.println(courses);
+		
+//		int price = courseDaoImpl.findCoursePriceByName("三角函數專屬課程");
+//		System.out.println("價格: " + price);
+		
+		int price1 = courseDaoImpl.findCoursePriceById(2);
+		System.out.println("價格111: " + price1);
+		
+		
 	}
 }
 	

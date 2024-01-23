@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -18,18 +19,17 @@ import org.springframework.stereotype.Repository;
 import com.example.entiry.Course;
 import com.example.entiry.User;
 
-
 /**
- courseId,courseName,price,courseDescription,
- courseDetail,courseImg,teacher,typeId,createTime;
-
+ * courseId,courseName,price,courseDescription,
+ * courseDetail,courseImg,teacher,typeId,createTime;
+ * 
  */
 @Repository
 public class CourseDaoImpl implements CourseDao {
-	
+
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
+
 	RowMapper<Course> rowMapper = (ResultSet rs, int rowNum) -> {
 		Course course = new Course();
 		course.setCourseId(rs.getInt("courseId"));
@@ -43,16 +43,18 @@ public class CourseDaoImpl implements CourseDao {
 		course.setCreateTime(rs.getDate("createTime"));
 		return course;
 	};
+
 	@Override
 	public List<Course> findAllCourses() {
-			String sql = "SELECT courseId, courseName, courseDescription, courseDetail, courseImg, teacher, price, typeId, createTime FROM course";
-			return jdbcTemplate.query(sql, rowMapper);		
+		String sql = "SELECT courseId, courseName, courseDescription, courseDetail, courseImg, teacher, price, typeId, createTime FROM course";
+		return jdbcTemplate.query(sql, rowMapper);
 	}
+
 	@Override
 	public int addCourse(Course course) {
 		String sql = "insert into course (courseName, courseDescription, courseDetail, courseImg, teacher, price, typeId)"
 				+ "    values (?,?,?,?,?,?,?)";
-		
+
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 
 		int rowsAffected = jdbcTemplate.update((Connection connection) -> {
@@ -65,7 +67,7 @@ public class CourseDaoImpl implements CourseDao {
 			ps.setInt(5, course.getTeacher());
 			ps.setInt(6, course.getPrice());
 			ps.setInt(7, course.getTypeId());
-			
+
 			return ps;
 		}, keyHolder);
 
@@ -75,18 +77,56 @@ public class CourseDaoImpl implements CourseDao {
 
 		return rowsAffected;
 	}
-		
-	
+
 	@Override
 	public void updateCourse(Course course) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	@Override
 	public void deleteCourse(int courseId) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
+	@Override
+	public int findCoursePriceByName(String courseName) {
+		String sql = "SELECT price FROM course WHERE courseName = ?";
+		try {
+			// 打印 SQL 查询语句和查询参数
+			System.out.println("Executing SQL query: " + sql);
+			System.out.println("Query parameter - courseName: " + courseName);
+
+			// 使用 queryForObject 來檢索單一值
+			Integer price = jdbcTemplate.queryForObject(sql, Integer.class, courseName);
+
+			// 如果 price 為 null，表示找不到資料，可以返回一個預設值或者拋出異常，視情況而定
+			return (price != null) ? price : 0; // 這裡假設價格的預設值為 0
+		} catch (EmptyResultDataAccessException e) {
+			// 如果找不到資料，可以返回一個預設值或者拋出異常，視情況而定
+			System.out.println("找不到课程：" + courseName);
+			return 0; // 這裡假設價格的預設值為 0
+		}
+	}
+
+	@Override
+	public int findCoursePriceById(int courseId) {
+		String sql = "SELECT price FROM course WHERE courseId = ?";
+		try {
+			// 打印 SQL 查询语句和查询参数
+			System.out.println("Executing SQL query: " + sql);
+			System.out.println("Query parameter - courseName: " + courseId);
+
+			// 使用 queryForObject 來檢索單一值
+			Integer price = jdbcTemplate.queryForObject(sql, Integer.class, courseId);
+
+			// 如果 price 為 null，表示找不到資料，可以返回一個預設值或者拋出異常，視情況而定
+			return (price != null) ? price : 0; // 這裡假設價格的預設值為 0
+		} catch (EmptyResultDataAccessException e) {
+			// 如果找不到資料，可以返回一個預設值或者拋出異常，視情況而定
+			System.out.println("找不到课程：" + courseId);
+			return 0; // 這裡假設價格的預設值為 0
+		}
+	}
 }

@@ -17,4 +17,10 @@ public interface CourseDao {
 
     // 刪除課程
     void deleteCourse(int courseId);
+    
+    //根據課程名子獲取價格
+    int findCoursePriceByName(String courseName);
+    
+    //根據課程ID獲取價格
+    int findCoursePriceById(int courseId);
 }

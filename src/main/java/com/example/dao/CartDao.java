@@ -9,6 +9,8 @@ import com.example.entiry.User;
 
 public interface CartDao {
 	
+	
+	
 //	1. 查詢所有商品(多筆)--測試成功
 	List<Cart> findAllCarts();
     

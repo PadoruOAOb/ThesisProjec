@@ -9,7 +9,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.example.dao.CartDao;
 import com.example.dao.CartDaoImpl;
 import com.example.entiry.Cart;
+import com.example.entiry.Course;
 import com.example.entiry.User;
+import com.example.dao.CourseDaoImpl;
+
 
 public class CartDaoTest {
 
@@ -55,6 +58,7 @@ public class CartDaoTest {
 			System.out.println("是否結帳: " + cart.getIsCheckout());
 			System.out.println("結帳時間: " + cart.getCheckoutTime());
 		});
+		
 //      如果未找到購物車，則列印相應消息
 		if (cartPot.isEmpty()) {
 			System.out.println("未找到未結帳的購物車");

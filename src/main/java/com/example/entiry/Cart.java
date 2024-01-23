@@ -22,4 +22,7 @@ public class Cart {
 	private Date checkoutTime;
 	
 	private Integer amount;
+	
+
+	
 }

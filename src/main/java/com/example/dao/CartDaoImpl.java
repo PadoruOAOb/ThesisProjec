@@ -18,6 +18,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.entiry.Cart;
 import com.example.entiry.CartItem;
+import com.example.entiry.Course;
 import com.example.entiry.User;
 
 /**
@@ -31,12 +32,17 @@ public class CartDaoImpl implements CartDao {
 	
 	@Autowired
 	UserDao userDao;
-	
+
 	RowMapper<Cart> rowMapper = (ResultSet rs, int rowNum) -> {
 		Cart cart = new Cart();
 		cart.setCartId(rs.getInt("cartId"));
+		
 		User user = userDao.findUserByUserId(rs.getInt("userId")).get();
 		cart.setUser(user);
+//		
+//		Course course = courseDao.findCoursePriceByName(rs.getInt("price")).get();
+//		course.setCourse(price);
+		
 		cart.setAmount(rs.getInt("amount"));
 		cart.setIsCheckout(rs.getInt("isCheckOut"));
 		cart.setCheckoutTime(rs.getDate("checkOutTime"));

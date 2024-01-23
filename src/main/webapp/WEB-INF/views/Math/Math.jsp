@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
@@ -10,29 +9,24 @@
 	<main class="container mt-4">
 		<h2 class="mb-4">數學課程列表</h2>
 		<div class="row">
-			<!-- 第一個課程 -->
+			<!-- 循環內包含所有課程 -->
 			<c:forEach items="${course.courses}" var="Course">
 				<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1">
 					<div class="card">
-						<img src="../../img/math.png" class="card-img-top"
-							alt="Math Course 1">
+						<img src="../../img/math.png" class="card-img-top" alt="Math Course 1">
 						<div class="card-body m-0">
 							<h5 class="card-title fs-3">${Course.courseName}</h5>
 							<p class="card-text">${Course.courseDescription}</p>
-							<a class="btn btn-primary"
-								href="/ThesisProjec/mvc/user/trigFunctions">詳細課程</a>
+							<a class="btn btn-primary" href="/ThesisProjec/mvc/user/trigFunctions">詳細課程</a>
 						</div>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
-		</div>
-		</div>
 		<!-- 第二個課程 -->
 		<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1">
 			<div class="card">
-				<img src="../../img/math2.png" class="card-img-top"
-					alt="Math Course 2">
+				<img src="../../img/math2.png" class="card-img-top" alt="Math Course 2">
 				<div class="card-body ">
 					<h5 class="card-title fs-3 pt-auto">微積分入門課程</h5>
 					<p class="card-text">
@@ -49,8 +43,7 @@
 		<!-- 第三個課程 -->
 		<div class="col-md-4 mb-4 p-5 m-0 pt-auto pb-1">
 			<div class="card">
-				<img src="../../img/math3.png" class="card-img-top"
-					alt="Math Course 3">
+				<img src="../../img/math3.png" class="card-img-top" alt="Math Course 3">
 				<div class="card-body">
 					<h5 class="card-title fs-3 pt-auto">統計學基礎課程</h5>
 					<p class="card-text">
@@ -60,14 +53,11 @@
 						實際應用案例：透過豐富的實際案例，學會如何應用統計學方法解決現實生活中的問題。<br>
 						統計軟體應用：學習使用常見的統計軟體，如R或Python，進行數據分析和視覺化。<br>
 					</p>
-					<a class="btn btn-primary"
-						href="/ThesisProjec/mvc/user/trigFunctions">詳細課程 </a>
+					<a class="btn btn-primary" href="/ThesisProjec/mvc/user/trigFunctions">詳細課程 </a>
 				</div>
 			</div>
 		</div>
-		</div>
 	</main>
 </body>
-
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
