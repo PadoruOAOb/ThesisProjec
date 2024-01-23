@@ -71,7 +71,7 @@ public class CartDaoImpl implements CartDao {
 	
 	@Override
 	public List<Cart> findCartsbyUserIdAndCheckoutStatus(Integer userId, Integer isCheckout) {
-		String sql = "select cartId, userId, isCheckout, checkoutTime from cart where userId = ? and isCheckout = ?";
+		String sql = "select cartId, userId, isCheckout, checkoutTime from cart where userId = ? and isCheckout = 0";
 		List<Cart> carts = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Cart.class), userId, isCheckout);
 		return carts;
 	}
