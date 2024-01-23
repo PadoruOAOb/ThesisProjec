@@ -1,6 +1,7 @@
 package com.example.entiry;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,4 +29,6 @@ public class Course {
 	private Integer typeId;
 	
 	private Date createTime;
+
+    
 }

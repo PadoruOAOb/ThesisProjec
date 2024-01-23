@@ -3,6 +3,7 @@ USE `learning` ;
 -- 建立 user
 select userId, username, password, email, level, authType, authId from user;
 insert into user(username, password, email, level) values ( 'OAOb', '123', 'OAOb@example.com', 1 );
+insert into user(username, password, email, level) values ( 'aweit123', '123', 'aweit123@example.com', 123456 );
 
 -- 建立課程類別
 select typeId, typeName from type;
@@ -139,6 +140,7 @@ insert into resource (courseId, link,type) values (1,'/download/material1', 2);
 -- cart
 select cartId, userId, amount, isCheckOut, checkOutTime from cart;
 insert into cart(userId, amount, isCheckOut) values(1, 1500, 0);
+insert into cart(userId, amount, isCheckOut) values(2, 500, 0);
 
 
 -- cart item

@@ -71,21 +71,22 @@ public class CartDaoImpl implements CartDao {
 	}
 	
 //	3. 根據購物車ID查找購物車資料(單筆)
-    @Override
+	@Override
 	public Optional<Cart> findCartById(Integer cartId) {
 	    try {
-	        String sql = "select cartId, userId, isCheckout, checkoutTime from cart where userId = ? and isCheckout = ?";
+	        String sql = "select cartId, userId, isCheckout, checkoutTime from cart where cartId = ?";
 	        Cart cart = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Cart.class), cartId);
 	        return Optional.ofNullable(cart);
 	    } catch (EmptyResultDataAccessException e) {
 	        return Optional.empty();
 	    }
 	}
+
     
 //	4. 根據使用者ID及結帳狀態來查找其所有購物車資料(多筆)
 	@Override
 	public List<Cart> findCartsbyUserIdAndCheckoutStatus(Integer userId, Integer isCheckout) {
-		String sql = "select cartId, userId, isCheckout, checkoutTime from cart where userId = ? and isCheckout = 0";
+		String sql = "select cartId, userId, isCheckout, checkoutTime from cart where userId = ? and isCheckout = ?";
 		List<Cart> carts = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Cart.class), userId, isCheckout);
 		return carts;
 	}
@@ -93,31 +94,42 @@ public class CartDaoImpl implements CartDao {
 //	5. 根據使用者ID來查找其未結帳的購物車資料(單筆)
 	@Override
 	public Optional<Cart> findNoneCheckoutCartByUserId(Integer userId) {
-		try {
-			String sql = "select cartId, userId, isCheckout, checkoutTime from cart "
-					+ "where userId = ? and (isCheckout = 0 or isCheckout is null)";
-			Cart cart = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Cart.class), userId);
-			if(cart != null) {
-//				enrichCartWithDetails(cart);
-			}
-			return Optional.ofNullable(cart);
-		
-		} catch (EmptyResultDataAccessException e) {
-			return Optional.empty();
-		}
+	    try {
+	        String sql = "select cartId, userId, isCheckout, checkoutTime from cart "
+	                + "where userId = ? and (isCheckout = 0 or isCheckout is null)";
+	        List<Cart> carts = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Cart.class), userId);
+
+	        if (carts.isEmpty()) {
+	            return Optional.empty();
+	        } else if (carts.size() == 1) {
+	            Cart cart = carts.get(0);
+	            enrichCartWithDetails(cart);
+	            return Optional.of(cart);
+	        } else {
+	            // 在這裡處理多個結果的情況，可能需要選擇其中一個或採取其他處理方式
+	            // 這裡只是一個示例，你可能需要根據具體需求進行修改
+	            throw new IllegalStateException("多個結果，無法確定選擇哪一個。");
+	        }
+	    } catch (EmptyResultDataAccessException e) {
+	        return Optional.empty();
+	    }
+	}
+
+	private void enrichCartWithDetails(Cart cart) {
+		System.out.println("結帳時間: " + cart.getCheckoutTime());	
 	}
 	
 //	6.根據使用者ID將該使用者的購物車設置為已結帳狀態(前台的事件)
 	@Override
 	public int checkoutCartByUserId(Integer userId) {
-		String sql = "update cart set isCheckout = true where userId = ? and (isCheckout = false or isCheckout is null)";
-		return jdbcTemplate.update(sql, userId);
+	    String sql = "update cart set isCheckout = true where userId = ? and (isCheckout = 0 or isCheckout is null)";
+	    return jdbcTemplate.update(sql, userId);
 	}
-	
+
 //	7. 根據購物車ID將購物車設置為已結帳狀態(後台的事件)
 	@Override
 	public int checkoutCartById(Integer cartId) {
-		String sql = "update cart set isCheckout = true where cartId = ? and (isCheckout = false or isCheckout is null)";
+		String sql = "update cart set isCheckout = true where cartId = ? and (isCheckout = 0 or isCheckout is null)";
 		return jdbcTemplate.update(sql, cartId);
 	}
 }
