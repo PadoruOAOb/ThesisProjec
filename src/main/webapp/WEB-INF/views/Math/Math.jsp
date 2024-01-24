@@ -23,7 +23,7 @@
 							<h5 class="card-title fs-3">${ course.courseName }</h5>
 							<p class="card-text">${ course.courseDescription }</p>
 							<a class="btn btn-primary"
-								href="/ThesisProjec/mvc/user/XXX">詳細課程</a>
+								href="/ThesisProjec/mvc/user/trigFunctions">詳細課程</a>
 						</div>
 					</div>
 				</div>

@@ -84,10 +84,9 @@
       
         <div class="video-container">
             <h3>試看內容</h3>
-            <!-- 使用 iframe 嵌入 YouTube 影片，修改 src 屬性為相應的嵌入代碼 -->
-            <iframe width="560" height="315" src=""  frameborder="0"
-                allowfullscreen></iframe>
-        </div>
+             <video width="640" height="360" controls preload="metadata" class="m-2">
+	            	<source src="/ThesisProjec/mvc/video/v2/1" type="video/mp4">
+			   </video>
     </div>
     
 </body>

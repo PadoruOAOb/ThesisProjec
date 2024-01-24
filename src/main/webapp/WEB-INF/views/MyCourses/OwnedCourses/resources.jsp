@@ -5,7 +5,7 @@
 
 <body style="padding-top: 100px;" class="d-flex flex-column min-vh-100">
 
- ${resources}
+ <%-- ${resources}--%>
  
  <%--
 	 [
@@ -41,8 +41,7 @@
 					</div>
 		        </div>
         	</c:if>
-        </c:forEach>
-        
+        </c:forEach>      
         <!-- 下載教材區域 -->
         <div class="card">
             <div class="card-body">
@@ -59,8 +58,8 @@
         </div>
     </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
 
 </body>
-
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </html>

@@ -20,9 +20,9 @@
 </style>
 <body>
 	<div class="container mt-5">
-		<c:if test="${ empty cartItems || cartItems.size == 0}">
+	<c:if test="${ empty cartItems || cartItems.size() == 0}">
 	    	無資料
-	    </c:if>
+	</c:if> 
 		<h2 class="mb-4">已購買的課程</h2>
 		<!-- Course Card -->
 		<c:forEach items="${ cartItems }" var="cartItem">
@@ -39,8 +39,8 @@
 
 		<!-- 可以加入更多已購買課程的卡片 -->
 	</div>
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
 
 </body>
-
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </html>
