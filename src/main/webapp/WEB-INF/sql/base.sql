@@ -11,7 +11,7 @@ insert into type(typeName) values('數學'),('日文'),('英文');
 
 -- 建立課程
 select courseId, courseName, courseDescription,courseDetail, courseImg, teacher, price, typeId, createTime from course;
-
+insert into course(Java基礎課程, 暫無,暫無, 暫無, 1, 50, 1);
 insert into course(courseName, courseDescription,courseDetail, courseImg, teacher, price, typeId) 
 values('三角函數專屬課程','歡迎加入我們的三角函數專屬課程，這是一個精心設計的課程，旨在深入探討正弦、餘弦和正切等三角函數的神奇世界。無論你是初學者還是已經對數學充滿熱情，這個課程都將為你打開全新的數學視野。
 課程亮點：

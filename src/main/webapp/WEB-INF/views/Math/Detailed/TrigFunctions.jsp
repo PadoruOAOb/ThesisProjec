@@ -101,6 +101,14 @@
         // 在這裡可以添加購買課程的相應處理邏輯
         alert('成功加入購物車了喔!!');
     }
+    
+    function addToCart(courseId, courseName, price) {
+        // 使用JavaScript將所選課程信息添加到購物車
+        var cartItem = {
+            courseId: courseId,
+            courseName: courseName,
+            price: price
+        };
 </script>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

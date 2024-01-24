@@ -18,21 +18,17 @@ public class CartItemDaoTest {
 
 //		List<CartItem> cartItems = cartItemDaoImpl.findAllCartItems();
 //		System.out.println(cartItems);
-		
+
 //		CartItem cartItem = new CartItem();
 //		cartItem.setCartId(1);
 //		cartItem.setCourseId(2);
 //		cartItem.setPrice(100);
 //		cartItemDaoImpl.addCartItem(cartItem);
 //		System.out.println(cartItem);
-	
+
 		// 假設 cartItemDaoImpl 和 userId 已經被正確初始化
 		List<CartItem> cartItems = cartItemDaoImpl.findCartItemsByUserIdAndCheckout(1);
-		for (CartItem cartItem : cartItems) {
-		    System.out.println("CartItem ID: " + cartItem.getCartItemId());
-		    System.out.println("Course ID: " + cartItem.getCourseId());
+		System.out.println(cartItems);
 
 	}
-	
-}
 }

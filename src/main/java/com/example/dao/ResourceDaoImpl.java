@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.example.entiry.Resource;
-import com.example.entiry.User;
 
 @Repository
 public class ResourceDaoImpl implements ResourceDao{
@@ -46,6 +46,12 @@ public class ResourceDaoImpl implements ResourceDao{
 		} catch (Exception e) {
 			return Optional.empty();
 		}
+	}
+
+	@Override
+	public List<Resource> findAllResourcesByCourseId(Integer courseId) {
+		String sql = "SELECT resourceId, courseId, link, createTime, updateTime, type FROM resource where courseId = ?";
+		return jdbcTemplate.query(sql, rowMapper,courseId);
 	}
 
 }

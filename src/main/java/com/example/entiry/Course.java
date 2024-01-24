@@ -29,6 +29,8 @@ public class Course {
 	private Integer typeId;
 	
 	private Date createTime;
+	
+	private List<Resource> resoruces;
 
     
 }

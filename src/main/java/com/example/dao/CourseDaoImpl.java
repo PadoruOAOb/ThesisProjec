@@ -6,10 +6,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -17,6 +19,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.example.entiry.Course;
+import com.example.entiry.Resource;
 import com.example.entiry.User;
 
 /**
@@ -29,6 +32,9 @@ public class CourseDaoImpl implements CourseDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	ResourceDao resourceDao;
 
 	RowMapper<Course> rowMapper = (ResultSet rs, int rowNum) -> {
 		Course course = new Course();
@@ -41,6 +47,8 @@ public class CourseDaoImpl implements CourseDao {
 		course.setCourseImg(rs.getString("courseImg"));
 		course.setTypeId(rs.getInt("typeId"));
 		course.setCreateTime(rs.getDate("createTime"));
+		List<Resource> resources = resourceDao.findAllResourcesByCourseId(rs.getInt("courseId"));
+		course.setResoruces(resources);
 		return course;
 	};
 
@@ -128,5 +136,11 @@ public class CourseDaoImpl implements CourseDao {
 			System.out.println("找不到课程：" + courseId);
 			return 0; // 這裡假設價格的預設值為 0
 		}
+	}
+
+	@Override
+	public Optional<Course> findCourseByCourseId(Integer courseId) {
+		String sql = "SELECT courseId, courseName, courseDescription, courseDetail, courseImg, teacher, price, typeId, createTime FROM course where courseId=?";
+		return Optional.ofNullable(jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Course.class),courseId));
 	}
 }

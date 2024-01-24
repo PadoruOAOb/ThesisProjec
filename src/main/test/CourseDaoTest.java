@@ -41,10 +41,9 @@ public class CourseDaoTest {
 //		int price = courseDaoImpl.findCoursePriceByName("三角函數專屬課程");
 //		System.out.println("價格: " + price);
 		
-		int price1 = courseDaoImpl.findCoursePriceById(2);
-		System.out.println("價格111: " + price1);
-		
-		
+//		int price1 = courseDaoImpl.findCoursePriceById(2);
+//		System.out.println("價格111: " + price1);
+	
 	}
 }
 	

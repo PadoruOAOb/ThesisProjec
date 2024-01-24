@@ -50,22 +50,15 @@ public class CartDaoTest {
 //		 System.out.println("找到" + cartlist.size() + " 使用者為2的未結帳購物車(0)");
 
 //	    5. 根據使用者ID來查找其未結帳的購物車資料(單筆)
-		Optional<Cart> cartPot = cartDaoImpl.findNoneCheckoutCartByUserId(2);
-		cartPot.ifPresent(cart -> {
-			System.out.println("找到未結帳的購物車:");
-			System.out.println("購物車ID: " + cart.getCartId());
-			System.out.println("使用者ID: " + cart.getUserId());
-			System.out.println("是否結帳: " + cart.getIsCheckout());
-			System.out.println("結帳時間: " + cart.getCheckoutTime());
-		});
+		Optional<Cart> cartPot = cartDaoImpl.findNoneCheckoutCartByUserId(1);
+		if(cartPot.isPresent()) {
+			System.out.println(cartPot.get());
+		}
 		
 //      如果未找到購物車，則列印相應消息
 		if (cartPot.isEmpty()) {
 			System.out.println("未找到未結帳的購物車");
 		}
 	}
-//      6.根據使用者ID將該使用者的購物車設置為已結帳狀態(前台的事件)
-
-
-        
+//      6.根據使用者ID將該使用者的購物車設置為已結帳狀態(前台的事件)  
 }

@@ -10,7 +10,7 @@
     <p>課程名稱: Java基礎課程 | 價格: $50</p>
     
     <!-- 購買按鈕 -->
-    <button onclick="addToCart(1, 'Java基礎課程', 50)">加入購物車</button>
+    <button onclick="addToCart(6, 'Java基礎課程', 50)">加入購物車</button>
     
 </body>
     <script>

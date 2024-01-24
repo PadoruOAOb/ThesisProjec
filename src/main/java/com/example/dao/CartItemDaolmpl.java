@@ -15,6 +15,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.example.entiry.CartItem;
+import com.example.entiry.Course;
 
 
 @Repository
@@ -22,6 +23,9 @@ public class CartItemDaolmpl implements CartItemDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	CourseDao courseDao;
 
 	RowMapper<CartItem> rowMapper = (ResultSet rs, int rowNum) -> {
 		CartItem cartItem = new CartItem();
@@ -30,6 +34,9 @@ public class CartItemDaolmpl implements CartItemDao {
 		cartItem.setCourseId(rs.getInt("courseId"));
 		cartItem.setPrice(rs.getInt("price"));
 		cartItem.setQty(rs.getInt("qty"));
+		int courseId = rs.getInt("courseId");
+		Course course = courseDao.findCourseByCourseId(courseId).get();
+		cartItem.setCourse(course);
 		return cartItem;
 	};
 
@@ -70,6 +77,12 @@ public class CartItemDaolmpl implements CartItemDao {
 	public List<CartItem> findCartItemsByUserIdAndCheckout(int userId) {
 		String sql = "SELECT * FROM cartItem JOIN cart ON cartItem.cartId = cart.cartId WHERE userId = 1 AND isCheckout = 1;";
 		return jdbcTemplate.query(sql, rowMapper);
+	}
+
+	@Override
+	public List<CartItem> findCartItemsByCartId(Integer cartId) {
+		String sql = "SELECT cartItemId, cartId, courseId, price, qty FROM cartitem where cartId=?";
+		return jdbcTemplate.query(sql, rowMapper,cartId);
 	}
 	
  

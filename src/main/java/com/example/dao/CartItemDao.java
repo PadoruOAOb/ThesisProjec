@@ -19,8 +19,6 @@ public interface CartItemDao {
 //  4.根據使用者ID查找以結帳獲得的購物 
     List<CartItem> findCartItemsByUserIdAndCheckout(int userId);
     
-
-    
-
-    
+//  5.
+    List<CartItem> findCartItemsByCartId(Integer cartId);
 }

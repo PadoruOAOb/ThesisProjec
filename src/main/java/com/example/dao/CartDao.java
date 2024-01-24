@@ -31,5 +31,8 @@ public interface CartDao {
 	
 //	7. 根據購物車ID將購物車設置為已結帳狀態(後台的事件)	
 	int checkoutCartById(Integer cartId) ;
+	
+//	8. 根據使用者ID及結帳狀態來查找其所有購物車資料(多筆)
+	List<Cart> findCartsbyUserIdAndCheckoutStatus(Integer userId, Boolean isCheckout);
 
 }

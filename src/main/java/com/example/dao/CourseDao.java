@@ -1,8 +1,10 @@
 package com.example.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.entiry.Course;
+import com.example.entiry.User;
 
 public interface CourseDao {
 
@@ -23,4 +25,6 @@ public interface CourseDao {
     
     //根據課程ID獲取價格
     int findCoursePriceById(int courseId);
+    
+    Optional<Course> findCourseByCourseId(Integer courseId);
 }

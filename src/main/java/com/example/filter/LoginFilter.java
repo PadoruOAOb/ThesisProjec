@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.example.entiry.User;
 
-//@WebFilter(value = {"/*"})
+@WebFilter(value = {"/*"})
 public class LoginFilter extends HttpFilter{
 
 	@Override
