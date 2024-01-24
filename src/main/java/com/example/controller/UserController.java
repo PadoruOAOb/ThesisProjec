@@ -109,6 +109,20 @@ public class UserController {
 		return "Cart/cart";
 	}
 
+	// 導入到數學課程業面
+	@GetMapping("/math")
+	public String math(HttpSession session,Model model) {
+		User user = (User) session.getAttribute("user");
+		int typeId = 1;
+		List<Course> courses = typeDaoImpl.findCourseByTypeId(typeId);
+		model.addAttribute("Course", courses);
+		//前面是給前端渲染 後面反之
+		System.out.println(courses);
+		return "Math/Math";
+	}
+	
+	
+	
 	// 轉跳到我的課程
 	@GetMapping("/MyCourses")
 	public String MyCourses(HttpSession session,Model model) {
@@ -187,12 +201,6 @@ public class UserController {
 		return "redirect:/";
 	}
 
-	// 導入到數學課程業面
-	@GetMapping("/math")
-	public String math(Model model) {
-
-		return "Math/Math";
-	}
 
 	// 轉跳到三角函數的業面
 	@GetMapping("/trigFunctions")
@@ -202,9 +210,14 @@ public class UserController {
 
 	// 轉跳到日文課程頁面
 	@GetMapping("/japan")
-	public String japan(Model model) {
-		return "Japan/Japan";
-
+	public String japan(HttpSession session,Model model) {
+		User user = (User) session.getAttribute("user");
+		int typeId = 2;
+		List<Course> courses = typeDaoImpl.findCourseByTypeId(typeId);
+		model.addAttribute("Course", courses);
+		//前面是給前端渲染 後面反之
+		System.out.println(courses);
+		return "Math/Math";
 	}
 
 	// 轉跳更改密碼

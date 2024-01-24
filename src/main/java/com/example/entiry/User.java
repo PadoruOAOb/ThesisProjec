@@ -23,4 +23,8 @@ public class User {
 	
 	private String authId;
 	
+	private Type type;
+	
+	
+	
 }

@@ -31,6 +31,8 @@ public class Course {
 	private Date createTime;
 	
 	private List<Resource> resoruces;
+	
+	private List<Course> courses;
 
     
 }

@@ -25,4 +25,6 @@ public class CartItem {
 	private Cart cart; // 購物車物件(關聯欄位)
 	
 	private Course course; // 商品物件(關聯欄位)
+	
+	private Type type;
 }
