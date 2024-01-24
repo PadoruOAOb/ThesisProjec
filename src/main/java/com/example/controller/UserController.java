@@ -6,7 +6,6 @@ import java.util.Optional;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,11 +22,11 @@ import com.example.dao.CourseDao;
 import com.example.dao.ResourceDao;
 import com.example.dao.TypeDao;
 import com.example.dao.UserDao;
+import com.example.entiry.Cart;
+import com.example.entiry.CartItem;
 import com.example.entiry.Course;
 import com.example.entiry.Resource;
 import com.example.entiry.User;
-import com.example.entiry.Cart;
-import com.example.entiry.CartItem;
 
 /**
  * http://localhost:8080/ThesisProjec/mvc/user/all
