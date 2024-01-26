@@ -41,21 +41,20 @@
 					</div>
 		        </div>
         	</c:if>
-        </c:forEach>      
-        <!-- 下載教材區域 -->
-        <div class="card">
+        	<div class="card">
             <div class="card-body">
                 <h5 class="card-title">課程教材</h5>
                 <p class="card-text">下載課程的額外教材。</p>
                 <!-- 加入下載按鈕以下載課程教材 -->
                 <c:forEach items="${ resources }" var="resource" varStatus="loop">
 		        	<c:if test="${ resource.type == 2 }">
-						<a href="/ThesisProjec${ resource.link}.pdf" class="btn btn-primary" download>下載教材${ loop.index + 1 }</a>
+						<a href="/ThesisProjec${ resource.link}.pdf" class="btn btn-primary" download>下載教材${ loop.index  }</a>
 		        	</c:if>
 		        </c:forEach>
                 <!-- 如有更多教材，可加入更多按鈕 -->
             </div>
         </div>
+        </c:forEach>      
     </div>
 
 

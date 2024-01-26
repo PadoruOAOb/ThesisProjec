@@ -11,8 +11,8 @@ insert into type(typeName) values('數學'),('日文'),('英文');
 
 -- 建立課程
 select courseId, courseName, courseDescription,courseDetail, courseImg, teacher, price, typeId, createTime from course;
-insert into course(Java基礎課程, 暫無,暫無, 暫無, 1, 50, 1);
-insert into course(courseName, courseDescription,courseDetail, courseImg, teacher, price, typeId) 
+insert into course(courseName, courseDescription,courseDetail, courseImg, teacher, price, typeId)
+
 values('三角函數專屬課程','歡迎加入我們的三角函數專屬課程，這是一個精心設計的課程，旨在深入探討正弦、餘弦和正切等三角函數的神奇世界。無論你是初學者還是已經對數學充滿熱情，這個課程都將為你打開全新的數學視野。
 課程亮點：
 理論和實踐結合： 我們將理論知識與實際應用相結合，通過生動的實例和實際問題，讓你更好地理解三角函數的本質。
@@ -116,6 +116,7 @@ values('N5日文學習課程','N5日文學習課程歡迎您。這是一門精�
 
 insert into course(courseName, courseDescription,courseDetail, courseImg, teacher, price, typeId) 
 values('日常生活中的日文應用','參加我們的日常生活中的日文應用課程，探索日文的無窮魅力。這門課程適合想要提升實際日文應用能力的學習者，將為您帶來更深厚的日文基礎。
+
 課程亮點：
 日文交流技能：提升您的日文口語和書寫技能，讓您能夠在日常生活中流利地使用日文。
 實際應用場景：通過實際應用場景，學習在不同情境下靈活運用日文，包括工作、旅行等方面。
@@ -131,7 +132,17 @@ values('日常生活中的日文應用','參加我們的日常生活中的日文
 透過實際對話和場景練習，幫助學生更自信地應對實際生活中的溝通情境。
 使用豐富的語境和實例，以提升學生的聽、說、讀、寫能力。
 課程強調輕鬆的學習氛圍，讓學生在輕松的氛圍中提升日文能力，並不注重考試技巧。
-','/img/JP/JP03.png',1, 100, 2);
+','/img/JP/JP02.png',1, 100, 2);
+insert into course(courseName, courseDescription,courseDetail, courseImg, teacher, price, typeId) 
+values('日文文化深度了解','歡迎加入我們的日文文化深度了解課程，這是一門為喜歡日本文化的學習者準備的課程，將帶您深入了解日本文化的多個層面。
+
+課程亮點：
+傳統與現代的融合：通過深度探討傳統和現代的日本文化，使您能夠更全面地了解這個國家的獨特之處。<br>
+文學與藝術：介紹日本豐富的文學和藝術，讓您感受到這個文化的深度和多樣性。<br>
+日本日常生活：了解日本人的日常生活方式，包括飲食、節慶、社交習慣等方面。<br>','','/img/JP/JP03.png',1, 100, 2);
+
+
+
 -- resource
 select resourceId, courseId, link, createTime, updateTime, type from resource;
 insert into resource (courseId, link,type) values (1,'/mvc/video/v2/1', 1);
