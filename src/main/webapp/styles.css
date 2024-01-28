@@ -71,8 +71,8 @@ footer {
 }
 
 .card-img, .card-img-bottom, .card-img-top {
-	width: 282px !important;
-	height: 282px !important;
+	width: 300x !important;
+	height: 300px !important;
 }
 
 .card-body {
@@ -88,3 +88,11 @@ footer {
 	text-align: center;
 	padding: 10px;
 }
+
+.row.Meme {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
+}
+
