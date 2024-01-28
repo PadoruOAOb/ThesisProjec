@@ -23,7 +23,6 @@ public class Cart {
 	
 	private Integer amount;
 	
-	
 	private User user;	
 	
 	private List<CartItem> cartItems; // 購物車明細(關聯欄位)
