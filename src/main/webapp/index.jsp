@@ -71,10 +71,10 @@
 							<img src="./img/MEME/Cheese.png" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="..." class="d-block w-100" alt="...">
+							<img src="./img/MEME/code.png" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="..." class="d-block w-100" alt="...">
+							<img src="./img/MEME/Uber.png" class="d-block w-100" alt="能放gif嗎">
 						</div>
 					</div>
 					<button class="carousel-control-prev" type="button"
