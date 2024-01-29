@@ -56,8 +56,9 @@
 				</div>
 				<div class="form-group">
 					<label for="cvv" class="form-label">CVV：</label> <input type="text"
-						class="form-control" id="cvv" name="cvv" required>
+						class="form-control" id="cvv" name="cvv" maxlength="3" required>
 				</div>
+
 				<button type="submit" class="checkout-btn">結帳</button>
 			</div>
 		</div>
@@ -85,54 +86,41 @@
 	}
 
 	function formatExpirationDate() {
-		var expirationDateInput = document.getElementById('expirationDate');
-		var inputValue = expirationDateInput.value;
+	    var expirationDateInput = document.getElementById('expirationDate');
+	    var inputValue = expirationDateInput.value;
 
-		// 移除非數字的字符
-		var cleanedValue = inputValue.replace(/\D/g, '');
+	    // 移除非數字的字符
+	    var cleanedValue = inputValue.replace(/\D/g, '');
 
-		// 根據輸入的長度插入 /
-		if (cleanedValue.length > 2) {
-			cleanedValue = cleanedValue.substring(0, 2) + '/'
-					+ cleanedValue.substring(2);
-		}
+	    // 根據輸入的長度插入 /
+	    if (cleanedValue.length > 2) {
+	        cleanedValue = cleanedValue.substring(0, 2) + '/' + cleanedValue.substring(2);
+	    }
 
-		// 更新輸入框的值
-		expirationDateInput.value = cleanedValue;
+	    // 更新輸入框的值
+	    expirationDateInput.value = cleanedValue;
 
-		// 購物車內容
-		var cartContent = [];
+	    // 驗證日期格式
+	    var parts = cleanedValue.split('/');
+	    var month = parseInt(parts[0], 10);
+	    var year = parseInt(parts[1], 10);
 
-		// 函數：將課程添加到購物車
-		function addToCart() {
-			// 獲取課程信息（您可能需要根據實際情況修改此處的代碼）
-			var courseInfo = {
-				name : "三角函數課程",
-				price : 99.99
-			};
-
-			// 將課程添加到購物車
-			cartContent.push(courseInfo);
-
-			// 更新購物車內容顯示
-			updateCartDisplay();
-		}
-
-		// 函數：更新購物車內容顯示
-		function updateCartDisplay() {
-			var cartContainer = document.getElementById("cart-content");
-			cartContainer.innerHTML = ""; // 清空現有內容
-
-			// 顯示購物車內容
-			for (var i = 0; i < cartContent.length; i++) {
-				var course = cartContent[i];
-				var courseItem = document.createElement("div");
-				courseItem.innerHTML = "<h4>課程名稱: " + course.name
-						+ "</h4><p>價格: $" + course.price.toFixed(2) + "</p>";
-				cartContainer.appendChild(courseItem);
-			}
-		}
+	    if (month < 1 || month > 12 || year < 0 || year > 99) {
+	        // 如果日期不符合格式，清除輸入框的值或提示用戶
+	        expirationDateInput.value = '';
+	        alert('請輸入有效的到期日期，格式為 MM/YY。');
+	    }
+	    if (parts.length === 2) {
+	        var day = parseInt(parts[0], 10);
+	        if (day < 1 || day > 31) {
+	            // 如果日不在合理範圍內，清除輸入框的值或提示用戶
+	            expirationDateInput.value = '';
+	            alert('請輸入有效的到期日期，日應在1到31之間。');
+	        }
+	    }
+	    
 	}
+
 </script>
 
 <style>
